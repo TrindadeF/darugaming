@@ -27,13 +27,16 @@ import LogoPayments05 from "@/assets/logo-payments-05.png"
 import LogoPayments06 from "@/assets/logo-payments-06.png"
 import LogoPayments07 from "@/assets/logo-payments-07.png"
 import LogoPayments08 from "@/assets/logo-payments-08.png"
+
 import { format } from "date-fns";
 import NumberFlow from "@number-flow/react";
 import { Rating } from "../widgets/rating";
+
 type BuyProductProps = {
     product: Partial<Product>
 }
-export default function BuyProduct({ product }: BuyProductProps) {
+
+function BuyProduct({ product }: BuyProductProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const currency = 'oi'
     const dropdownItems: string[] = ["Standard", "Champions Edition"];
@@ -52,6 +55,9 @@ export default function BuyProduct({ product }: BuyProductProps) {
     }
     const handleSetRating = (rating: number) => {
         console.log('new rating', rating)
+    }
+    const handleBuy = () => {
+        console.log('buyed')
     }
     return (
         <div className="w-full md:p-8 p-5 backdrop-blur-md" style={{ background: "rgba(49, 55, 66, 0.80)" }}>
@@ -120,10 +126,10 @@ export default function BuyProduct({ product }: BuyProductProps) {
             </div>
             <div className="flex flex-col gap-3">
                 <div className="box-shape">
-                    <button className="w-full bg-[#0BC4E5]  cursor-pointer h-14 shape button-product font-semibold text-black gap-2"><CartSVG />Buy Now</button>
+                    <button onClick={handleBuy} className="w-full bg-[#0BC4E5]  cursor-pointer h-14 shape button-product font-semibold text-black gap-2"><CartSVG />Buy Now</button>
                 </div>
                 <div className="box-shape">
-                    <button className="w-full bg-[#0BC4E5]  cursor-pointer h-14 shape-outline button-product font-semibold text-[#00D8FF] gap-2"><UserGuestSVG />Buy now as Guest</button>
+                    <button onClick={handleBuy} className="w-full bg-[#0BC4E5]  cursor-pointer h-14 shape-outline button-product font-semibold text-[#00D8FF] gap-2"><UserGuestSVG />Buy now as Guest</button>
                 </div>
                 <div
                     className="box-shape wish"
@@ -152,3 +158,4 @@ export default function BuyProduct({ product }: BuyProductProps) {
     )
 }
 
+export { BuyProduct }

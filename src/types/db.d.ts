@@ -66,6 +66,7 @@ interface Product extends Timestamps {
     title: string;
     slug?: string;
     image?: string;
+    video: string
     poster?: string;
     shortDescription: string;
     description: string;

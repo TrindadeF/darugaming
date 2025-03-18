@@ -8,12 +8,16 @@ import TagSVG from "@/assets/tag.svg";
 import CartSVG from "@/assets/cart.svg";
 import WishHeartSVG from "@/assets/wish-heart.svg";
 import WishHeartRedSVG from "@/assets/wish-heart-red.svg";
+import { useRouter } from "next/navigation";
 
-import ProductRecommendation01 from "@/assets/product-recommendation-01.png";
+
 
 export default function ProductRecommendation(props: { product: Product }) {
+    const router = useRouter()
     const [isHoveredWish, setIsHoveredWish] = useState<boolean>(false);
-
+    function handleClick() {
+        router.push(`/products/${props.product.slug}`)
+    }
     return (
         <div className="relative">
             <a href="" className="recommendation-content">
@@ -46,7 +50,7 @@ export default function ProductRecommendation(props: { product: Product }) {
                     </div>
                     <div className="xl:hidden flex gap-4 pt-4">
                         <div className="box-shape w-full">
-                            <button className="w-full object-contain bg-[#0BC4E5] cursor-pointer h-10 shape font-semibold text-black gap-2 px-8 "><CartSVG />Comprar</button>
+                            <button onClick={handleClick} className="w-full object-contain bg-[#0BC4E5] cursor-pointer h-10 shape font-semibold text-black gap-2 px-8 "><CartSVG />Comprar</button>
                         </div>
                         <div
                             className="w-12 h-10 cursor-pointer rounded-md flex items-center justify-center bg-white/20 hover:bg-white"

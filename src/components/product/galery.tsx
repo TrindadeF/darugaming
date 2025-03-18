@@ -68,7 +68,6 @@ function ProductGallery({ images, video }: ProductGalleryProps) {
     return (
         <div>
             <Swiper
-
                 style={{
                     "--swiper-navigation-color": "#fff",
                     "--swiper-navigation-size": "30px",
