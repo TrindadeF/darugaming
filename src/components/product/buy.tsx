@@ -56,8 +56,11 @@ export default function BuyProduct({ product }: BuyProductProps) {
     return (
         <div className="w-full md:p-8 p-5 backdrop-blur-md" style={{ background: "rgba(49, 55, 66, 0.80)" }}>
             <div className="flex gap-x-4 mb-6">
-                <span className="md:text-md text-sm py-2 px-4 font-semibold text-black" style={{ background: "linear-gradient(259deg, #0BC4E5 -24.82%, #67E8FF 18.51%, rgba(22, 220, 255, 0.82) 108.82%)" }}>Pre-order</span>
-                <span className="md:text-md text-sm py-2 px-4 border border-gray-400">{product.createdAt ? format(product.createdAt, 'dd/MM/yyy') : ''}</span>
+                {product.isPreOrder && <>
+                    <span className="md:text-md text-sm py-2 px-4 font-semibold text-black" style={{ background: "linear-gradient(259deg, #0BC4E5 -24.82%, #67E8FF 18.51%, rgba(22, 220, 255, 0.82) 108.82%)" }}>Pre-order</span>
+                    <span className="md:text-md text-sm py-2 px-4 border border-gray-400">{product.createdAt ? format(product.createdAt, 'dd/MM/yyy') : ''}</span>
+                </>
+                }
             </div>
             <div className="flex items-center gap-x-2 mb-2">
                 {product.rating && <Rating defaultValue={product.rating} setRating={handleSetRating} />}
