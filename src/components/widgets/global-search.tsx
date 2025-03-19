@@ -52,16 +52,14 @@ function GlobalSearch() {
                     aria-expanded={open}
                     className="w-[230px] justify-between text-muted-foreground"
                 >
-
+                    <Search className="opacity-50" />
                     Search...
                     <div className="flex gap-1">
                         <p className="text-sm text-muted-foreground">
-                            Press{" "}
                             <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
                                 <span className="text-xs">Ctrl</span>+ K
                             </kbd>
                         </p>
-                        <Search className="opacity-50" />
                     </div>
                 </Button>
             </PopoverTrigger>
@@ -74,7 +72,7 @@ function GlobalSearch() {
                             {games.map((game) => (
                                 <CommandItem
                                     key={game.id}
-                                    value={game.id}
+                                    value={game.title}
                                     onSelect={(currentTarget) => {
                                         router.push(`/projects/${currentTarget}`)
                                         setOpen(false)

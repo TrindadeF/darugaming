@@ -5,6 +5,8 @@ import i18nConfig from "@/i18nConfig";
 import { notFound } from "next/navigation";
 import { dir } from "i18next";
 import { Toaster } from "@/components/ui/sonner"
+import TranslationsProvider from "@/components/providers/translations";
+import initTranslations from "../i18n";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,6 +26,7 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
+const i18nNamespaces = ["home"];
 export default async function RootLayout({
   children,
   params,
@@ -36,12 +39,20 @@ export default async function RootLayout({
     notFound();
   }
 
+
+  const { resources } = await initTranslations(locale, i18nNamespaces);
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <TranslationsProvider
+          namespaces={i18nNamespaces}
+          locale={locale}
+          resources={resources}
+        >
+          {children}
+        </TranslationsProvider>
         <Toaster />
       </body>
     </html>

@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -42,6 +43,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
 }
 
 :root {
@@ -77,18 +84,18 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
   .shape {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-      260deg,
-      #0bc4e5 18.6%,
-      #81ecff 35.21%,
-      rgba(22, 220, 255, 0.82) 108.59%
-    );
+    background: linear-gradient(260deg,
+        #0bc4e5 18.6%,
+        #81ecff 35.21%,
+        rgba(22, 220, 255, 0.82) 108.59%);
   }
+
   .box-shape {
     transition: filter 0.2s linear;
   }
@@ -123,12 +130,10 @@
   }
 
   .shape.whatsapp {
-    background: linear-gradient(
-      85deg,
-      rgba(66, 190, 28, 0.96) 24.72%,
-      #3cff00 59%,
-      #53c82f 96.15%
-    );
+    background: linear-gradient(85deg,
+        rgba(66, 190, 28, 0.96) 24.72%,
+        #3cff00 59%,
+        #53c82f 96.15%);
   }
 
   .shape.whatsapp:hover {
@@ -136,25 +141,21 @@
   }
 
   .shape {
-    -webkit-clip-path: polygon(
-      0% 15px,
-      15px 0,
-      15px 0%,
-      100% 0,
-      100% calc(100% - 15px),
-      calc(100% - 15px) 100%,
-      0 100%
-    );
+    -webkit-clip-path: polygon(0% 15px,
+        15px 0,
+        15px 0%,
+        100% 0,
+        100% calc(100% - 15px),
+        calc(100% - 15px) 100%,
+        0 100%);
 
-    clip-path: polygon(
-      0% 15px,
-      15px 0,
-      15px 0%,
-      100% 0,
-      100% calc(100% - 15px),
-      calc(100% - 15px) 100%,
-      0 100%
-    );
+    clip-path: polygon(0% 15px,
+        15px 0,
+        15px 0%,
+        100% 0,
+        100% calc(100% - 15px),
+        calc(100% - 15px) 100%,
+        0 100%);
   }
 
   .shape-outline {
@@ -163,12 +164,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-      260deg,
-      #0bc4e5 18.6%,
-      #81ecff 35.21%,
-      rgba(22, 220, 255, 0.82) 108.59%
-    );
+    background: linear-gradient(260deg,
+        #0bc4e5 18.6%,
+        #81ecff 35.21%,
+        rgba(22, 220, 255, 0.82) 108.59%);
   }
 
   .shape-outline:before {
@@ -194,80 +193,66 @@
 
   .shape-outline:hover:before {
     transition: all 0.2s linear;
-    background: linear-gradient(
-      260deg,
-      #0bc4e5 18.6%,
-      #81ecff 35.21%,
-      rgba(22, 220, 255, 0.82) 108.59%
-    );
+    background: linear-gradient(260deg,
+        #0bc4e5 18.6%,
+        #81ecff 35.21%,
+        rgba(22, 220, 255, 0.82) 108.59%);
     filter: brightness(1.2) !important;
   }
 
   .shape-outline,
   .shape-outline:before {
-    -webkit-clip-path: polygon(
-      0% 15px,
-      15px 0,
-      15px 0%,
-      100% 0,
-      100% calc(100% - 15px),
-      calc(100% - 15px) 100%,
-      0 100%
-    );
+    -webkit-clip-path: polygon(0% 15px,
+        15px 0,
+        15px 0%,
+        100% 0,
+        100% calc(100% - 15px),
+        calc(100% - 15px) 100%,
+        0 100%);
 
-    clip-path: polygon(
-      0% 15px,
-      15px 0,
-      15px 0%,
-      100% 0,
-      100% calc(100% - 15px),
-      calc(100% - 15px) 100%,
-      0 100%
-    );
+    clip-path: polygon(0% 15px,
+        15px 0,
+        15px 0%,
+        100% 0,
+        100% calc(100% - 15px),
+        calc(100% - 15px) 100%,
+        0 100%);
   }
 
   .clip-path-element {
-    -webkit-clip-path: polygon(
-      0% 30px,
-      30px 0,
-      30px 0%,
-      100% 0,
-      100% calc(100% - 30px),
-      calc(100% - 30px) 100%,
-      0 100%
-    );
+    -webkit-clip-path: polygon(0% 30px,
+        30px 0,
+        30px 0%,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%);
 
-    clip-path: polygon(
-      0% 30px,
-      30px 0,
-      30px 0%,
-      100% 0,
-      100% calc(100% - 30px),
-      calc(100% - 30px) 100%,
-      0 100%
-    );
+    clip-path: polygon(0% 30px,
+        30px 0,
+        30px 0%,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%);
   }
 
   .clip-path-images {
-    -webkit-clip-path: polygon(
-      0% 14px,
-      14px 0,
-      14px 0%,
-      100% 0,
-      100% calc(100% - 14px),
-      calc(100% - 14px) 100%,
-      0 100%
-    );
+    -webkit-clip-path: polygon(0% 14px,
+        14px 0,
+        14px 0%,
+        100% 0,
+        100% calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        0 100%);
 
-    clip-path: polygon(
-      0% 14px,
-      14px 0,
-      14px 0%,
-      100% 0,
-      100% calc(100% - 14px),
-      calc(100% - 14px) 100%,
-      0 100%
-    );
+    clip-path: polygon(0% 14px,
+        14px 0,
+        14px 0%,
+        100% 0,
+        100% calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        0 100%);
   }
 
   .custom-dropdown {
@@ -364,34 +349,30 @@
     top: calc(50% + 2px);
     left: 50%;
     transform: translate(-50%, -50%);
-    -webkit-clip-path: polygon(
-      0% 30px,
-      30px 0,
-      30px 0%,
-      100% 0,
-      100% calc(100% - 30px),
-      calc(100% - 30px) 100%,
-      0 100%
-    );
-    clip-path: polygon(
-      0% 30px,
-      30px 0,
-      30px 0%,
-      100% 0,
-      100% calc(100% - 30px),
-      calc(100% - 30px) 100%,
-      0 100%
-    );
+    -webkit-clip-path: polygon(0% 30px,
+        30px 0,
+        30px 0%,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%);
+    clip-path: polygon(0% 30px,
+        30px 0,
+        30px 0%,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: -1;
   }
 
-  .recommendation-content:hover > div {
+  .recommendation-content:hover>div {
     background: #30434d;
   }
 
-  .recommendation-content:hover + .recommendation {
+  .recommendation-content:hover+.recommendation {
     opacity: 1;
   }
 
@@ -459,6 +440,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

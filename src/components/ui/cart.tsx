@@ -2,18 +2,17 @@
 
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Minus, Plus, ShoppingCart, X, CreditCard, Badge } from "lucide-react";
+import { Minus, Plus, ShoppingCart, X, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
 import { useCart } from "../providers/cart";
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./sheet";
-
-
+import { Badge } from "./badge";
 
 function Cart() {
-    const currency = 'BRL'
+    const currency = 'USD'
     const { cartItem, removeFromCart, updateQuantity } = useCart()
 
 
@@ -26,7 +25,7 @@ function Cart() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="outline"> <ShoppingCart /> Cart {totalItems > 0 && <Badge>{totalItems}</Badge>}</Button>
+                <Button className="relative" variant="outline"> <ShoppingCart /> Cart {totalItems > 0 && <Badge className="absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1" >{totalItems}</Badge>}</Button>
             </SheetTrigger>
             <SheetContent className="max-h-screen">
                 <SheetHeader>
