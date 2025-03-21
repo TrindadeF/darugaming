@@ -1,0 +1,8 @@
+{
+    "user": {
+        "signIn": "Sign in",
+        "profile": "Profile",
+        "orders": "Orders",
+        "logout": "Log out"
+    }
+}

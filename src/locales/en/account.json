@@ -1,0 +1,28 @@
+{
+    "pagination": {
+        "rows_per_page": "Rows per page",
+        "page": "Page",
+        "of": "of",
+        "first_page": "Go to first page",
+        "previous": "Previous",
+        "next": "Next",
+        "last_page": "Go to last page"
+    },
+    "table": {
+        "search": "Search",
+        "sort": {
+            "asc": "Asc",
+            "desc": "Desc"
+        },
+        "hide_column": "Hide",
+        "no_results": "No Results",
+        "visible_columns_button": "Visible columns",
+        "toggle_columns": "Toggle columns",
+        "column_labels": {
+            "items": "Games",
+            "quantity": "Quantity",
+            "amount": "Amount",
+            "status": "Status"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "pagination": {
+        "rows_per_page": "Linhas por página",
+        "page": "Página",
+        "of": "de",
+        "first_page": "Voltar para a primeira página",
+        "previous": "Anterior",
+        "next": "Próximo",
+        "last_page": "Ir para a última"
+    }
+}

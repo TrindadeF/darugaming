@@ -6,7 +6,7 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 
 import Image from "next/image";
 
-import StarSVG from "@/assets/star.svg";
+
 import LightningSVG from "@/assets/lightning.svg";
 import SupportAgentSVG from "@/assets/support-agent.svg";
 import GlobalSVG from "@/assets/global.svg";

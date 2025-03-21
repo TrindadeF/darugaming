@@ -7,6 +7,8 @@ import { dir } from "i18next";
 import { Toaster } from "@/components/ui/sonner"
 import TranslationsProvider from "@/components/providers/translations";
 import initTranslations from "../i18n";
+import { getServerSession } from "@/lib/auth/server-session";
+import SessionProvider from "@/components/providers/session";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,7 +28,7 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
-const i18nNamespaces = ["home"];
+const i18nNamespaces = ['home', 'account'];
 export default async function RootLayout({
   children,
   params,
@@ -41,20 +43,23 @@ export default async function RootLayout({
 
 
   const { resources } = await initTranslations(locale, i18nNamespaces);
+  const session = await getServerSession();
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TranslationsProvider
-          namespaces={i18nNamespaces}
-          locale={locale}
-          resources={resources}
-        >
-          {children}
-        </TranslationsProvider>
-        <Toaster />
+        <SessionProvider initialSession={session}>
+          <TranslationsProvider
+            namespaces={i18nNamespaces}
+            locale={locale}
+            resources={resources}
+          >
+            {children}
+          </TranslationsProvider>
+          <Toaster />
+        </SessionProvider>
       </body>
-    </html>
+    </html >
   );
 }

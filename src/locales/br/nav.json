@@ -1,0 +1,8 @@
+{
+    "userNav": {
+        "signIn": "Entrar",
+        "profile": "Perfil",
+        "orders": "Pedidos",
+        "logout": "Sair"
+    }
+}

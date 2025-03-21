@@ -1,0 +1,28 @@
+{
+    "pagination": {
+        "rows_per_page": "Linhas por página",
+        "page": "Página",
+        "of": "de",
+        "first_page": "Voltar para a primeira página",
+        "previous": "Anterior",
+        "next": "Próximo",
+        "last_page": "Ir para a última"
+    },
+    "table": {
+        "search": "Pesquisar",
+        "sort": {
+            "asc": "Asc",
+            "desc": "Desc"
+        },
+        "hide_column": "Esconder",
+        "no_results": "Sem resultados",
+        "visible_columns_button": "Colunas visíveis",
+        "toggle_columns": "Altere as colunas",
+        "column_labels": {
+            "items": "Jogos",
+            "quantity": "Quantidade",
+            "amount": "Valor",
+            "status": "Status"
+        }
+    }
+}

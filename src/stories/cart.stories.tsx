@@ -5,7 +5,7 @@ import { useCart } from "@/components/providers/cart";
 import { Button } from "@/components/ui/button";
 import { Cart } from "@/components/ui/cart";
 import type { Meta, StoryObj } from "@storybook/react";
-const mockItem: Product[] = [
+export const mockItem: Product[] = [
     {
         _id: "1",
         categoryId: "cat1",

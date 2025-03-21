@@ -23,7 +23,8 @@ import {
 import { Facebook, Instagram, Send, Twitter } from "lucide-react"
 import { format } from "date-fns"
 import { useForm } from "react-hook-form"
-import { newsLetterSchema } from "../../../schemas/news-letter"
+import { newsLetterSchema } from "@/schemas/news-letter"
+
 
 function FooterSection() {
 
