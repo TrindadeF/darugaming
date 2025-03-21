@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 export function UserNav() {
     const { session, logout } = useSession();
     const router = useRouter();
-    const { t } = useTranslation('nav.user')
+    const { t } = useTranslation('nav')
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -69,17 +69,17 @@ export function UserNav() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem>
-                        {t('profile')}
+                        {t('user.profile')}
                         <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        {t('orders')}
+                        {t('user.orders')}
                         <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
-                    {t('logout')}
+                    {t('user.logout')}
                     <DropdownMenuShortcut>⌘Q</DropdownMenuShortcut>
                 </DropdownMenuItem>
             </DropdownMenuContent>

@@ -18,12 +18,19 @@ import { useTranslation } from "react-i18next";
 interface DataTablePaginationProps<TData> {
     table: Table<TData>;
 }
-
+// "pagination": {
+//     "rows_per_page": "Linhas por página",
+//     "page": "Página",
+//     "of": "de",
+//     "first_page": "Voltar para a primeira página",
+//     "previous": "Anterior",
+//     "next": "Próximo",
+//     "last_page": "Ir para a última"
+// },
 export function DataTablePagination<TData>({
     table,
 }: DataTablePaginationProps<TData>) {
-    const { t } = useTranslation('account');
-
+    const { t } = useTranslation('account')
     return (
         <div className="flex items-center justify-end px-2 py-2">
             <div className="flex items-center space-x-6 lg:space-x-8">
@@ -57,7 +64,7 @@ export function DataTablePagination<TData>({
                         onClick={() => table.setPageIndex(0)}
                         disabled={!table.getCanPreviousPage()}
                     >
-                        <span className="sr-only">{t("pagination.first_page")}</span>
+                        <span className="sr-only">{t('pagination.first_page')}</span>
                         <ChevronsLeft />
                     </Button>
                     <Button
@@ -66,7 +73,7 @@ export function DataTablePagination<TData>({
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                     >
-                        <span className="sr-only">{t("pagination.previous")}</span>
+                        <span className="sr-only">{t('pagination.previous')}</span>
                         <ChevronLeft />
                     </Button>
                     <Button
@@ -75,7 +82,7 @@ export function DataTablePagination<TData>({
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                     >
-                        <span className="sr-only">{t("pagination.next")}</span>
+                        <span className="sr-only">{t('pagination.next')}</span>
                         <ChevronRight />
                     </Button>
                     <Button
@@ -84,7 +91,7 @@ export function DataTablePagination<TData>({
                         onClick={() => table.setPageIndex(table.getPageCount() - 1)}
                         disabled={!table.getCanNextPage()}
                     >
-                        <span className="sr-only">{t("pagination.last_page")}</span>
+                        <span className="sr-only">{t('pagination.last_page')}</span>
                         <ChevronsRight />
                     </Button>
                 </div>
