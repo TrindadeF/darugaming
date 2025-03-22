@@ -74,7 +74,6 @@ export default async function RootLayout({
             indexName="products"
             searchClient={searchClient}
           >
-
             <TranslationsProvider
               namespaces={i18nNamespaces}
               locale={locale}

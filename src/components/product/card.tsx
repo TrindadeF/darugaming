@@ -1,4 +1,5 @@
 'use client';
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import NumberFlow from "@number-flow/react";
@@ -6,17 +7,19 @@ import { useCurrency } from "../providers/currency";
 import { Badge } from "../ui/badge";
 import { Heart, ShoppingCart } from "lucide-react";
 import { convertCurrency } from "@/lib/currency";
-import Image from "next/image";
+
 import { useState } from "react";
 import { useCart } from "../providers/cart";
+import { useRouter } from "next/navigation";
 
 export function Card(props: { product: Product }) {
+    const router = useRouter()
     const { currency, rates } = useCurrency()
     const [isWishlisted, setIsWishlisted] = useState(false)
     const { addToCart } = useCart()
     return (
         <motion.div
-            className="group relative h-96 w-72 overflow-hidden shadow-2xl"
+            className="group relative h-96 w-72 overflow-hidden shadow-2xl  ml-[20px] "
             whileHover="hover"
             initial="rest"
             style={{
@@ -70,7 +73,6 @@ export function Card(props: { product: Product }) {
                 }}
                 transition={{ duration: 0.4 }}
             >
-
                 <motion.div
                     variants={{
                         rest: { y: 110 },
@@ -114,9 +116,9 @@ export function Card(props: { product: Product }) {
                         }}
                     >
                         <div className="flex gap-2 w-48">
-                            <Button onClick={(e) => {
+                            <Button onClick={() => {
 
-                                console.log('oi');
+                                router.push(`products/${props.product.slug}`)
                             }}
                                 variant={'outline'} className="w-full hover:bg-gray-300 hover:cursor-pointer " style={{ zIndex: 1000 }}>
 

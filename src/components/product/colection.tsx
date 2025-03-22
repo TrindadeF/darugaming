@@ -27,12 +27,12 @@ type Video = {
     src: string;
 };
 
-type ProductGalleryProps = {
+type ProductCollectionProps = {
     images: Image[];
     video: Video;
 };
 type MediaItem = Image | { image: Image, src: string };
-function ProductGallery({ images, video }: ProductGalleryProps) {
+function ProductCollection({ images, video }: ProductCollectionProps) {
     const swiperRef = useRef<SwiperRef | null>(null);
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
     const [key, setKey] = useState<number>(0);
@@ -158,4 +158,4 @@ function ProductGallery({ images, video }: ProductGalleryProps) {
         </div>
     )
 }
-export { ProductGallery }
+export { ProductCollection }

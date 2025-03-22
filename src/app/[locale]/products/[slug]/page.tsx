@@ -3,7 +3,7 @@ import Image from "next/image";
 import BgStars from "@/assets/background-stars.png";
 import { notFound, redirect } from "next/navigation";
 import { toast } from "sonner";
-import { ProductGallery } from "@/components/product/galery";
+import { ProductCollection } from "@/components/product/colection";
 import { BuyProduct } from "@/components/product/buy";
 import ProductRecommendation from "@/components/product/recomendation";
 import { ProductReview } from "@/components/product/review";
@@ -53,7 +53,7 @@ export default async function Page(props: {
       <div className="flex gap-16 w-full">
         <div className="w-full flex-2 flex-col flex md:gap-16 gap-6">
           <div className="w-full">
-            <ProductGallery images={product.images.map(image => ({ src: image, alt: image }))} video={{ image: { src: product.video, alt: product.video }, src: product.video }} />
+            <ProductCollection images={product.images.map(image => ({ src: image, alt: image }))} video={{ image: { src: product.video, alt: product.video }, src: product.video }} />
           </div>
           <div className="md:hidden block w-full clip-path-element">
             <BuyProduct product={product} />
