@@ -1,17 +1,38 @@
 
 import Image from "next/image";
 import BgStars from "@/assets/background-stars.png";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { toast } from "sonner";
 import { ProductGallery } from "@/components/product/galery";
 import { BuyProduct } from "@/components/product/buy";
 import ProductRecommendation from "@/components/product/recomendation";
 import { ProductReview } from "@/components/product/review";
+import { translateText } from "@/lib/translator";
+import { TargetLanguageCode } from "deepl-node";
+import { Metadata } from "next";
+import i18nConfig from "@/i18nConfig";
+import initTranslations from "@/app/i18n";
+const i18nNamespaces = ['product'];
+export async function generateMetada(props: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
+  const { slug, locale } = await props.params;
+  const res = await fetch(`/api/product/metadata/${slug}`);
+  if (!res.ok) return { title: '', description: '' }
+  const product: Product = await res.json()
+  const title = await translateText(product.title, locale.toUpperCase() as TargetLanguageCode);
+  const description = await translateText(product.metaDescription || '', locale.toUpperCase() as TargetLanguageCode);
+  return {
+    title, description
+  }
+}
 
 export default async function Page(props: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string, locale: string }>;
 }) {
-  const { slug } = await props.params;
+  const { slug, locale } = await props.params;
+  if (!i18nConfig.locales.includes(locale)) {
+    notFound();
+  }
+
   const res = await fetch(`/api/project/${slug}`)
   if (!res.ok) {
     toast("Ops,algo deu errado", {
@@ -19,6 +40,7 @@ export default async function Page(props: {
     })
     redirect('/products')
   }
+  const { t } = await initTranslations(locale, i18nNamespaces);
   const product: Product = await res.json()
   return <>
     <div className="w-full fixed">

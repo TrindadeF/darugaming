@@ -5,7 +5,8 @@ import { CartProvider } from "../src/components/providers/cart"
 import { CurrencyProvider } from "../src/components/providers/currency"
 import SessionProvider from "../src/components/providers/session"
 import { Toaster } from "../src/components/ui/sonner"
-
+import { InstantSearch } from 'react-instantsearch-dom';
+import { searchClient } from '../src/lib/meilisearch'
 const preview: Preview = {
   parameters: {
     controls: {
@@ -18,12 +19,17 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <SessionProvider initialSession={null}>
-        <CartProvider>
-          <CurrencyProvider>
-            <Story />
-          </CurrencyProvider>
-          <Toaster />
-        </CartProvider>
+        <InstantSearch
+          indexName="products"
+          searchClient={searchClient}
+        >
+          <CartProvider>
+            <CurrencyProvider>
+              <Story />
+            </CurrencyProvider>
+            <Toaster />
+          </CartProvider>
+        </InstantSearch>
       </SessionProvider>
     ),
   ],

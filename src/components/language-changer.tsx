@@ -54,12 +54,12 @@ export default function LanguageChanger() {
     <div className="flex">
       <Button
         onClick={() => setOpen(!open)}
-        className="rounded-r-none hover:cursor-pointer"
+        className="rounded-l-none lg:rounded-l lg:rounded-r-none hover:cursor-pointer"
       >
         <Flag />
       </Button>
       <Select open={open} onOpenChange={setOpen} onValueChange={handleChange}>
-        <SelectTrigger className="w-[180px] rounded-l-none">
+        <SelectTrigger className=" hidden lg:flex w-[180px] rounded-l-none">
           <SelectValue
             placeholder={LANGUAGE_MAP[currentLocale as "br" | "en"]}
           />

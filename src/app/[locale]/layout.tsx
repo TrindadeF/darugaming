@@ -9,6 +9,15 @@ import TranslationsProvider from "@/components/providers/translations";
 import initTranslations from "../i18n";
 import { getServerSession } from "@/lib/auth/server-session";
 import SessionProvider from "@/components/providers/session";
+import metadataTranslations from "@/locales/metadata";
+import { InstantSearch } from 'react-instantsearch-dom';
+import { searchClient } from "@/lib/meilisearch";
+import { NavMenu } from "@/components/widgets/menu-nav";
+import { CurrencyProvider } from "@/components/providers/currency";
+
+
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,16 +28,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "mock title",
-  description: "mock description",
-};
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const { locale } = params;
+  let title = "";
+  let description = "";
+
+  const metadata = metadataTranslations[locale as 'en' | 'pt' | 'es'] || metadataTranslations["en"];
+  title = metadata.title;
+  description = metadata.description;
+
+  return {
+    title,
+    description,
+  };
+}
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
 const i18nNamespaces = ['home', 'account', 'nav'];
+
 export default async function RootLayout({
   children,
   params,
@@ -50,14 +70,24 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider initialSession={session}>
-          <TranslationsProvider
-            namespaces={i18nNamespaces}
-            locale={locale}
-            resources={resources}
+          <InstantSearch
+            indexName="products"
+            searchClient={searchClient}
           >
-            {children}
-          </TranslationsProvider>
-          <Toaster />
+
+            <TranslationsProvider
+              namespaces={i18nNamespaces}
+              locale={locale}
+              resources={resources}
+            >
+              <CurrencyProvider>
+                <NavMenu />
+                {children}
+              </CurrencyProvider>
+            </TranslationsProvider>
+            <Toaster />
+          </InstantSearch>
+
         </SessionProvider>
       </body>
     </html >

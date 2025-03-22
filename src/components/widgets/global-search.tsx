@@ -1,15 +1,20 @@
-"use client"
+'use client'
 
 import * as React from "react"
 import { Search } from "lucide-react"
+import { useRouter } from "next/navigation"
 
-
-import { Button } from "@/components/ui/button"
+import {
+    SearchBox,
+    Hits,
+    Configure
+} from 'react-instantsearch-dom'
 import {
     Command,
     CommandEmpty,
     CommandGroup,
     CommandInput,
+    CommandInputWithMeili,
     CommandItem,
     CommandList,
 } from "@/components/ui/command"
@@ -18,80 +23,81 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { useRouter } from "next/navigation"
-import { useRef } from "react"
+import { Button } from "@/components/ui/button"
 
-const games = [
-    { title: 'lol', id: '123' },
-    { title: 'dota', id: '1234' }
-]
+
+function CustomHit({ hit }: { hit: any }) {
+    const router = useRouter()
+
+    return (
+        <CommandItem
+            key={hit.objectID}
+            value={hit.title}
+            onSelect={() => {
+                router.push(`/projects/${hit.objectID}`)
+            }}
+        >
+            {hit.title}
+        </CommandItem>
+    )
+}
 
 function GlobalSearch() {
-    const [open, setOpen] = React.useState(false)
-    const [value, setValue] = React.useState("")
     const router = useRouter()
-    const inputRef = useRef<HTMLInputElement>(null)
+    const [open, setOpen] = React.useState(false)
+
+
     React.useEffect(() => {
-        const down = (e: KeyboardEvent) => {
-            if (e.key === "k" && (e.metaKey || e.ctrlKey) && inputRef.current) {
+        const handleShortcut = (e: KeyboardEvent) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault()
-                setOpen((open) => !open)
-                inputRef.current.focus()
+                setOpen(prev => !prev)
+
             }
         }
 
-        document.addEventListener("keydown", down)
-        return () => document.removeEventListener("keydown", down)
+        document.addEventListener('keydown', handleShortcut)
+        return () => document.removeEventListener('keydown', handleShortcut)
     }, [])
+
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
                 <Button
                     variant="outline"
-                    role="combobox"
-                    aria-expanded={open}
-                    className="w-[230px] justify-between text-muted-foreground"
+                    className="w-[150px] md:w-[230px] justify-between text-muted-foreground"
                 >
-                    <Search className="opacity-50" />
-                    Search...
-                    <div className="flex gap-1">
-                        <p className="text-sm text-muted-foreground">
-                            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-                                <span className="text-xs">Ctrl</span>+ K
-                            </kbd>
-                        </p>
-                    </div>
+                    <Search className="h-4 w-4 opacity-50" />
+                    Pesquisar...
+                    <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                        <span className="text-xs">⌘</span>K
+                    </kbd>
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[230px] p-0">
-                <Command>
-                    <CommandInput ref={inputRef} placeholder="Search a game..." className="h-9" />
+                <Command shouldFilter={false}>
+                    <CommandInputWithMeili placeholder="Search a game" className="focus-visible:ring-0 " />
+                    {/* <SearchBox
+                        inputRef={inputRef}
+                        className={cn(
+                            "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50")}
+                        submit={<></>}
+
+                        autoFocus
+                    /> */}
                     <CommandList>
-                        <CommandEmpty>No game found.</CommandEmpty>
-                        <CommandGroup heading={'Games'}>
-                            {games.map((game) => (
-                                <CommandItem
-                                    key={game.id}
-                                    value={game.title}
-                                    onSelect={(currentTarget) => {
-                                        router.push(`/projects/${currentTarget}`)
-                                        setOpen(false)
-                                    }}
-                                >
-                                    {game.title}
-                                </CommandItem>
-                            ))}
-                        </CommandGroup>
-                        <CommandGroup heading={'Settings'}>
+                        <Configure hitsPerPage={5} />
+                        <Hits hitComponent={CustomHit} />
+                        <CommandEmpty>Nenhum resultado encontrado</CommandEmpty>
+
+                        <CommandGroup heading="Configurações">
                             <CommandItem
-                                key={0}
-                                value={'account'}
-                                onSelect={(currentValue) => {
-                                    setValue(currentValue === value ? "" : currentValue)
+                                onSelect={() => {
+                                    router.push('/account')
                                     setOpen(false)
                                 }}
                             >
-                                Account
+                                Minha Conta
                             </CommandItem>
                         </CommandGroup>
                     </CommandList>
@@ -100,4 +106,5 @@ function GlobalSearch() {
         </Popover>
     )
 }
+
 export { GlobalSearch }

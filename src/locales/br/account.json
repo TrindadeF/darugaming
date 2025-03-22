@@ -24,5 +24,18 @@
             "amount": "Valor",
             "status": "Status"
         }
+    },
+    "layout": {
+        "metadata": {
+            "title": "Conta",
+            "description": "Gerencie suas configurações de conta"
+        },
+        "sidebar": {
+            "profile": "Perfil",
+            "orders": "Pedidos",
+            "billings": "Pagamentos"
+        },
+        "heading": "Configurações",
+        "description": "Gerencie sua conta"
     }
 }

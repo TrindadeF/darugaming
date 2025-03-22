@@ -12,6 +12,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { connectSearchBox } from "react-instantsearch-dom"
+import { Input } from "./input"
 
 function Command({
   className,
@@ -164,6 +166,35 @@ function CommandShortcut({
   )
 }
 
+type SearchBoxProps = {
+  currentRefinement: string
+  refine: (value: string) => void
+} & Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, 'onChange' | 'value'>
+
+const CommandInputWithMeili = connectSearchBox<SearchBoxProps>(
+  ({ currentRefinement, refine, className, ...props }) => (
+    <div
+      data-slot="command-input-wrapper"
+      className="flex h-9 items-center gap-2 border-b px-3"
+    >
+      <SearchIcon className="size-4 shrink-0 opacity-50" />
+      <Input
+        data-slot="command-input"
+        value={currentRefinement}
+        onChange={e => {
+          refine(e.target.value);
+        }}
+        className={cn(
+          "placeholder:text-muted-foreground flex h-10 w-full border-none focus:ring-0 bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        {...props}
+      />
+    </div>
+  )
+)
+
+
 export {
   Command,
   CommandDialog,
@@ -174,4 +205,5 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
+  CommandInputWithMeili,
 }

@@ -24,5 +24,18 @@
             "amount": "Amount",
             "status": "Status"
         }
+    },
+    "layout": {
+        "metadata": {
+            "title": "Account",
+            "description": "Manage your account settings"
+        },
+        "sidebar": {
+            "profile": "Profile",
+            "orders": "Orders",
+            "billings": "Billings"
+        },
+        "heading": "Settings",
+        "description": "Manage your account"
     }
 }

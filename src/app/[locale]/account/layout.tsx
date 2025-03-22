@@ -1,39 +1,49 @@
 import { Metadata } from "next"
 import { Separator } from "@/components/ui/separator"
 import { SidebarNav } from "@/components/account/side-nav"
+import i18nConfig from "@/i18nConfig";
+import { notFound } from "next/navigation";
+import initTranslations from "@/app/i18n";
 
 export const metadata: Metadata = {
     title: "Account",
-    description: "Advanced form example using react-hook-form and Zod.",
+    description: "",
 }
-
-const sidebarNavItems = [
-    {
-        title: "Profile",
-        href: "/account",
-    },
-    {
-        title: "Orders",
-        href: "/account/orders",
-    },
-    {
-        title: "Appearance",
-        href: "/examples/forms/appearance",
-    },
-
-]
 
 interface SettingsLayoutProps {
     children: React.ReactNode
+    params: Promise<{ locale: string }>;
 }
 
-export default function SettingsLayout({ children }: SettingsLayoutProps) {
+const i18nNamespaces = ['account']
+
+export default async function SettingsLayout({ children, params }: SettingsLayoutProps) {
+    const { locale } = await params;
+    if (!i18nConfig.locales.includes(locale)) {
+        notFound();
+    }
+    const { t } = await initTranslations(locale, i18nNamespaces);
+    const sidebarNavItems = [
+        {
+            title: t('layout.sidebar.profile'),
+            href: "/account",
+        },
+        {
+            title: t('layout.sidebar.orders'),
+            href: "/account/orders",
+        },
+        {
+            title: t('layout.sidebar.billings'),
+            href: "/account/billing",
+        },
+    ]
+
     return (
         <div className="space-y-6 p-4 lg:p-10 pb-16 md:block">
             <div className="space-y-0.5">
-                <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
+                <h2 className="text-2xl font-bold tracking-tight">{t('layout.heading')}</h2>
                 <p className="text-muted-foreground">
-                    Manage your account
+                    {t('layout.description')}
                 </p>
             </div>
             <Separator className="my-6" />
@@ -44,6 +54,5 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
                 <div className="flex-1 lg:max-w-2xl">{children}</div>
             </div>
         </div>
-
     )
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import { User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
@@ -42,7 +44,7 @@ export function UserNav() {
     }, [])
 
     if (!session) return (
-        <Button onClick={() => router.push('/signin')}>
+        <Button className="w-20" onClick={() => router.push('/signin')}>
             {t('signin')}
         </Button>
     )

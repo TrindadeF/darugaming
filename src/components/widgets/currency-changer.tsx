@@ -36,7 +36,7 @@ export default function CurrencyChanger() {
             </Button>
 
             <Select open={open} onOpenChange={setOpen} onValueChange={handleChange}>
-                <SelectTrigger className="w-[180px] rounded-l-none">
+                <SelectTrigger className="hidden lg:flex w-[180px] rounded-l-none">
                     <SelectValue placeholder={CURRENCY_NAMES[currency]} />
                 </SelectTrigger>
 
