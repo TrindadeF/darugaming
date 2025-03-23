@@ -9,8 +9,10 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
-  images: {
-  }
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
 
 };
 

@@ -8,11 +8,12 @@ import { ProductGallery } from "@/components/product/gallery";
 import { mockItem } from "@/stories/cart.stories";
 import { InfiniteMovingPartners } from "@/components/widgets/infinite-moving-partners";
 
-export default function Home(props: {
+export default async function Home(props: {
   params: Promise<{ locale: string }>;
 }) {
+  const locale = await props.params
+  console.log(locale)
 
-  const { t } = useTranslation('home')
   return (
 
     <div className="flex flex-col items-center justify-center">

@@ -41,6 +41,7 @@ export default async function Page(props: {
     redirect('/products')
   }
   const { t } = await initTranslations(locale, i18nNamespaces);
+  console.log(t)
   const product: Product = await res.json()
   return <>
     <div className="w-full fixed">

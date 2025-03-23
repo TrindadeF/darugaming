@@ -3,6 +3,7 @@ import { AuthFooter } from "@/components/auth/footer";
 
 import { SignIn } from "@/components/auth/signin";
 import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function Page() {
 
@@ -14,14 +15,14 @@ export default function Page() {
                 </div>
                 <div className="flex flex-1 items-center justify-center">
                     <div className="w-full max-w-md">
-                        <a className="mt-10 w-fit text-zinc-950 dark:text-white" href="/">
+                        <Link className="mt-10 w-fit text-zinc-950 dark:text-white" href="/">
                             <div className="flex w-fit items-center lg:pl-0 lg:pt-0 xl:pt-0">
                                 <ChevronLeft className="mr-3 h-[13px] w-[8px] text-zinc-950 dark:text-white" />
                                 <p className="ml-0 text-sm text-zinc-950 dark:text-white">
                                     Back to the website
                                 </p>
                             </div>
-                        </a>
+                        </Link>
                         <SignIn />
                     </div>
                 </div>
