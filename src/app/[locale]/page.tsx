@@ -1,6 +1,4 @@
-'use client'
 
-import { useTranslation } from "react-i18next";
 import { HeroCarousel } from "@/components/widgets/hero-carousel";
 import { BackgroundWrapper } from "@/components/bg-wrapper";
 import { ColorProvider } from "@/components/providers/color";
