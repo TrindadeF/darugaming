@@ -54,7 +54,7 @@ export default function LanguageChanger() {
     <div className="flex">
       <Button
         onClick={() => setOpen(!open)}
-        className="rounded-l-none lg:rounded-l lg:rounded-r-none hover:cursor-pointer"
+        className="rounded-l-none lg:rounded-l lg:rounded-r-none hover:cursor-pointer lg:h-[36px]"
       >
         <Flag />
       </Button>

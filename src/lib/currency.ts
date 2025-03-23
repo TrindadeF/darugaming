@@ -4,7 +4,7 @@ export const fetchExchangeRates = async () => {
     const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`);
     const data = await response.json();
     console.log(data)
-    return data.rates;
+    return data.conversion_rates;
 };
 
 export const convertCurrency = (priceInUSD: number, exchangeRate: number) => {

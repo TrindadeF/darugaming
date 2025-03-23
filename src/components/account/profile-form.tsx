@@ -9,15 +9,15 @@ import { z } from "zod"
 import { toast } from "sonner"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
+
 
 import { Button } from "../ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import { cn } from "@/lib/utils"
-import { format } from "date-fns"
+
 import { CalendarIcon, Check, ChevronsUpDown } from "lucide-react"
 import { Calendar } from "../ui/calendar"
-import { Card } from "../ui/card"
+
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command"
 import { formatDate, languages } from "@/lib/helper"
 import { useTranslation } from "react-i18next"
@@ -76,7 +76,7 @@ function ProfileForm() {
     return (
 
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-md">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-md ">
                 <FormField
                     control={form.control}
                     name="name"

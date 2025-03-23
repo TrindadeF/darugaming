@@ -24,6 +24,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 
 function CustomHit({ hit }: { hit: any }) {
@@ -76,15 +77,15 @@ function GlobalSearch() {
             </PopoverTrigger>
             <PopoverContent className="w-[230px] p-0">
                 <Command shouldFilter={false}>
-                    <CommandInputWithMeili placeholder="Search a game" className="focus-visible:ring-0 " />
-                    {/* <SearchBox
-                        inputRef={inputRef}
+                    {/* <CommandInputWithMeili placeholder="Search a game" className="focus-visible:ring-0 " /> */}
+                    <SearchBox
+
                         className={cn(
                             "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50")}
                         submit={<></>}
 
                         autoFocus
-                    /> */}
+                    />
                     <CommandList>
                         <Configure hitsPerPage={5} />
                         <Hits hitComponent={CustomHit} />

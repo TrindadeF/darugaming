@@ -29,7 +29,7 @@ export default function CurrencyChanger() {
         <div className="flex">
             <Button
                 onClick={() => setOpen(!open)}
-                className="rounded-r-none hover:cursor-pointer"
+                className="rounded-r-none hover:cursor-pointer lg:h-[36px]"
                 disabled={isLoading}
             >
                 {isLoading ? <Loader2 className="animate-spin" /> : <Wallet />}

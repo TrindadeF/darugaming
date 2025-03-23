@@ -10,10 +10,11 @@ import initTranslations from "../i18n";
 import { getServerSession } from "@/lib/auth/server-session";
 import SessionProvider from "@/components/providers/session";
 import metadataTranslations from "@/locales/metadata";
-import { InstantSearch } from 'react-instantsearch-dom';
-import { searchClient } from "@/lib/meilisearch";
+
 import { NavMenu } from "@/components/widgets/menu-nav";
 import { CurrencyProvider } from "@/components/providers/currency";
+import { Footer } from "@/components/widgets/footer";
+import { MeilisearchProvier } from "@/components/providers/meilisearch";
 
 
 
@@ -28,8 +29,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const { locale } = params;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   let title = "";
   let description = "";
 
@@ -70,10 +71,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider initialSession={session}>
-          <InstantSearch
-            indexName="products"
-            searchClient={searchClient}
-          >
+          <MeilisearchProvier>
             <TranslationsProvider
               namespaces={i18nNamespaces}
               locale={locale}
@@ -82,11 +80,11 @@ export default async function RootLayout({
               <CurrencyProvider>
                 <NavMenu />
                 {children}
+                <Footer />
               </CurrencyProvider>
             </TranslationsProvider>
             <Toaster />
-          </InstantSearch>
-
+          </MeilisearchProvier>
         </SessionProvider>
       </body>
     </html >
