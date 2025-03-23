@@ -33,9 +33,14 @@ export default async function SettingsLayout({ children, params }: SettingsLayou
             href: "/account/orders",
         },
         {
+            title: t('layout.sidebar.apparence'),
+            href: "/account/apparence",
+        },
+        {
             title: t('layout.sidebar.billings'),
             href: "/account/billing",
         },
+
     ]
 
     return (

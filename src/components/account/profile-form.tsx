@@ -11,16 +11,18 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "../ui/input"
 
 
-import { Button } from "../ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import { cn } from "@/lib/utils"
 
-import { CalendarIcon, Check, ChevronsUpDown } from "lucide-react"
+import { CalendarIcon, Check, ChevronDown, ChevronsUpDown } from "lucide-react"
 import { Calendar } from "../ui/calendar"
 
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command"
 import { formatDate, languages } from "@/lib/helper"
 import { useTranslation } from "react-i18next"
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
+import { Separator } from "../ui/separator"
 
 
 
@@ -45,6 +47,13 @@ const profileFormSchema = z.object({
             required_error: "Please select an email to display.",
         })
         .email(),
+    theme: z.enum(["light", "dark"], {
+        required_error: "Please select a theme.",
+    }),
+    font: z.enum(["inter", "manrope", "system"], {
+        invalid_type_error: "Select a font",
+        required_error: "Please select a font.",
+    }),
 })
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>
@@ -203,7 +212,6 @@ function ProfileForm() {
                         </FormItem>
                     )}
                 />
-
                 <Button type="submit">Update profile</Button>
             </form>
         </Form>

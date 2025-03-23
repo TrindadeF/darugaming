@@ -33,7 +33,8 @@
         "sidebar": {
             "profile": "Perfil",
             "orders": "Pedidos",
-            "billings": "Pagamentos"
+            "billings": "Pagamentos",
+            "apparence": "Aparência"
         },
         "heading": "Configurações",
         "description": "Gerencie sua conta"
