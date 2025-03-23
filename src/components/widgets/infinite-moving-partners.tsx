@@ -5,12 +5,19 @@ import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 
 function InfiniteMovingPartners() {
     return (
-        <div className=" rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-            <InfiniteMovingCards
-                items={items}
-                direction="right"
-                speed="normal"
-            />
+        <div className="container mx-auto max-w-7xl overflow-hidden p-4">
+            <div>
+                <div className="flex flex-col gap-4">
+                    <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl text-white">
+                        Partners
+                    </h2>
+                </div>
+                <InfiniteMovingCards
+                    items={items}
+                    direction="right"
+                    speed="normal"
+                />
+            </div>
         </div>
     );
 }

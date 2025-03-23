@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
-import { fetchExchangeRates } from "@/lib/currency";
+import { GetItem as fetchExchangeRates } from "@/lib/currency";
 
-export const revalidate = 86400;
 
 export async function GET() {
     try {
         const rates = await fetchExchangeRates();
-        console.log(rates)
         return NextResponse.json({ rates });
 
     } catch (error) {

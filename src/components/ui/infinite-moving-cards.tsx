@@ -89,7 +89,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[200px] h-[70px]  shrink-0  bg-zinc-500 px-8 py-6  dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
+            className="relative w-[200px] h-[70px]  shrink-0  bg-zinc-900 px-8 py-6  dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
             key={idx}
             style={{
               clipPath: "polygon(0% 15px, 15px 0, 15px 0%, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%)"

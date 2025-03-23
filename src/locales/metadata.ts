@@ -3,7 +3,7 @@ const metadataTranslations = {
         title: "Mock Title in English",
         description: "Mock description in English",
     },
-    pt: {
+    br: {
         title: "Título de Exemplo em Português",
         description: "Descrição de Exemplo em Português",
     },

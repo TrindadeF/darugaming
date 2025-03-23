@@ -15,6 +15,7 @@ import { NavMenu } from "@/components/widgets/menu-nav";
 import { CurrencyProvider } from "@/components/providers/currency";
 import { Footer } from "@/components/widgets/footer";
 import { MeilisearchProvier } from "@/components/providers/meilisearch";
+import { CartProvider } from "@/components/providers/cart";
 
 
 
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   let title = "";
   let description = "";
 
-  const metadata = metadataTranslations[locale as 'en' | 'pt' | 'es'] || metadataTranslations["en"];
+  const metadata = metadataTranslations[locale as 'en' | 'br' | 'es'] || metadataTranslations["en"];
   title = metadata.title;
   description = metadata.description;
 
@@ -48,7 +49,7 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
-const i18nNamespaces = ['home', 'account', 'nav'];
+const i18nNamespaces = ['home', 'account', 'nav', 'footer'];
 
 export default async function RootLayout({
   children,
@@ -78,12 +79,14 @@ export default async function RootLayout({
               resources={resources}
             >
               <CurrencyProvider>
-                <NavMenu />
-                {children}
-                <Footer />
+                <CartProvider>
+                  <NavMenu />
+                  {children}
+                  <Footer />
+                  <Toaster />
+                </CartProvider>
               </CurrencyProvider>
             </TranslationsProvider>
-            <Toaster />
           </MeilisearchProvier>
         </SessionProvider>
       </body>

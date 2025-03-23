@@ -1,38 +1,37 @@
 "use client"
-
 import { useColor } from "./providers/color"
-
 import backgroundStars from "@/assets/background-stars.png"
+import Image from "next/image"
 
 export function BackgroundWrapper({ children }: { children: React.ReactNode }) {
     const { color } = useColor()
-    // return (
-    //     <div
-    //         className="relative h-screen w-full transition-all duration-1000"
-    //         style={{ backgroundColor: color }}
-    //     >
-    //         {children}
-    //     </div>
-    // )
+
     return (
-        <div
-            className="relative h-screen w-full fixed transition-all duration-1000"
-            style={{
-                background: `
-          linear-gradient(
-            to bottom,
-            ${color}33 0%,
-            ${color}cc 50%,
-            ${color}ff 100%
-          ),
-        url(${backgroundStars.src})
-        `,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat"
-            }}
-        >
-            {children}
+        <div className="relative w-full flex flex-col items-center justify-center">
+            {/* Imagem de fundo otimizada */}
+            <Image
+                src={backgroundStars}
+                alt="Background stars"
+                fill
+                priority
+                quality={80}
+                className="object-cover z-0"
+            />
+
+            {/* Overlay de cor */}
+            <div
+                className="absolute inset-0 z-10"
+                style={{
+                    backgroundColor: `${color}CC`, // CC = 80% de opacidade
+                    mixBlendMode: "multiply",
+                    transition: "background-color 0.3s ease"
+                }}
+            />
+
+            {/* Conteúdo */}
+            <div className="relative z-20">
+                {children}
+            </div>
         </div>
     )
 }

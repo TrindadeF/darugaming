@@ -9,16 +9,16 @@ import { useColor } from "../providers/color"
 
 const banners = [
     {
-        image: "https://img.freepik.com/free-vector/black-friday-sale-wide-banner-with-offer-details_1017-28056.jpg",
-        color: "#f50901",
+        image: "https://assetsio.gnwcdn.com/RED_Vertical_ColorBlackACSH_logo_vertical_13052024_6PM_CEST.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+        color: "#8c00ff",
     },
     {
-        image: "https://www.shutterstock.com/image-vector/wide-banner-dark-blue-gradient-260nw-1706841358.jpg",
+        image: "https://i.postimg.cc/px2S9P0Q/banner.png",
         color: "#005eff",
     },
     {
         image: "https://www.robin-noorda.com/uploads/1/6/8/3/16830688/3347022_orig.jpg",
-        color: "#fceb03",
+        color: "#338cff",
     },
 ]
 
@@ -46,7 +46,6 @@ export function HeroCarousel() {
     return (
         <div
             className="relative h-[500px] w-full transition-colors duration-1000"
-
         >
             <div className="relative mx-auto max-w-7xl px-4 h-full">
                 <Carousel
@@ -61,12 +60,12 @@ export function HeroCarousel() {
                     <CarouselContent className="h-[500px]" >
                         {banners.map((banner, index) => (
                             <CarouselItem key={index}>
-                                <div className="relative h-full w-full flex items-center justify-center">
-                                    <img
+                                <div className={`relative h-full w-full flex items-center justify-center ${banner.color}`}>
+                                    {/* <img
                                         src={banner.image}
                                         alt={`Banner ${index + 1}`}
                                         className="h-full w-full object-contain rounded-xl"
-                                    />
+                                    /> */}
                                 </div>
                             </CarouselItem>
                         ))}

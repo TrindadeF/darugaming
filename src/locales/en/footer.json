@@ -1,0 +1,48 @@
+{
+    "stayConnected": {
+        "title": "Stay Connected",
+        "description": "Join our newsletter for the latest updates and exclusive offers.",
+        "form": {
+            "emailLabel": "Email",
+            "emailDescription": "Your email to contact you",
+            "subscribe": "Subscribe",
+            "placeholder": "example@email.com"
+        }
+    },
+    "quickLinks": {
+        "title": "Quick Links",
+        "links": {
+            "home": "Home",
+            "products": "Products",
+            "account": "Account",
+            "faq": "FAQ"
+        }
+    },
+    "logoSection": {
+        "title": "Darugaming Logo",
+        "addressLines": [
+            "Contact DaniGaming for support, questions,",
+            "or more information about our digital",
+            "products. Our team is available to help with",
+            "any questions you may have. Feel free to",
+            "send us a message using the form below or",
+            "directly via email. We look forward to hearing",
+            "from you!"
+        ]
+    },
+    "followUs": {
+        "title": "Follow Us",
+        "socials": {
+            "facebook": "Follow us on Facebook",
+            "twitter": "Follow us on Twitter",
+            "instagram": "Follow us on Instagram",
+            "whatsapp": "Connect with us on WhatsApp"
+        }
+    },
+    "copyright": "© {{year}} Daru gaming. All rights reserved.",
+    "footerLinks": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Settings"
+    }
+}
