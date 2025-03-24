@@ -9,20 +9,15 @@ import { BuyProduct } from "@/components/product/buy";
 import ProductRecommendation from "@/components/product/recomendation";
 import { ProductReview } from "@/components/product/review";
 // import { translateText } from "@/lib/translator";
-import { TargetLanguageCode } from "deepl-node";
+// import { TargetLanguageCode } from "deepl-node";
 
 import i18nConfig from "@/i18nConfig";
 import initTranslations from "@/app/i18n";
+import { Metadata } from "next";
 
 const i18nNamespaces = ['product'];
-<<<<<<< HEAD
 export async function generateMetadata(props: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
-  const { slug, locale } = await props.params;
-=======
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string, slug: string }> }) {
-  const { slug, locale } = await params;
->>>>>>> a492cb071cac4c71a27da4a7e6324a5ddaa27c07
+  const { slug } = await props.params;
   const res = await fetch(`/api/product/metadata/${slug}`);
   if (!res.ok) {
 

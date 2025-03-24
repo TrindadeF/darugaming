@@ -1,3 +1,4 @@
+import { mockItem } from "@/stories/cart.stories";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
@@ -8,7 +9,7 @@ export async function GET(
     console.log(request, slug)
 
     return NextResponse.json(
-        {},
+        mockItem[0],
         { status: 200 }
     );
 }
