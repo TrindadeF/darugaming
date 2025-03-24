@@ -51,7 +51,7 @@ const mockOrders: Order[] = [
 ];
 
 
-export const column: ColumnDef<Order>[] = [
+const column: ColumnDef<Order>[] = [
     {
         accessorKey: "items",
         header: ({ column }) => (

@@ -13,7 +13,7 @@ import { Metadata } from "next";
 import i18nConfig from "@/i18nConfig";
 import initTranslations from "@/app/i18n";
 const i18nNamespaces = ['product'];
-export async function generateMetada(props: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
   const { slug, locale } = await props.params;
   const res = await fetch(`/api/product/metadata/${slug}`);
   if (!res.ok) return { title: '', description: '' }

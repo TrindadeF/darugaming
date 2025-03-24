@@ -28,3 +28,5 @@ export const useColor = () => {
     }
     return context;
 };
+
+export const ThemeProvider = ColorProvider;

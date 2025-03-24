@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, Locale } from "date-fns";
 import { enUS, fr, de, es, pt, ru, ja, ko, zhCN } from "date-fns/locale";
 export const LANGUAGE_MAP = {
   br: "Português",
