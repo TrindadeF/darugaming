@@ -1,10 +1,10 @@
 'use client';
-import { AuthFooter } from "@/components/auth/footer";
 
-import { SignIn } from "@/components/auth/signin";
 import { SignUp } from "@/components/auth/signup";
 import { ChevronLeft } from "lucide-react";
-
+import Image from "next/image";
+import ImageBG from '@/assets/authbg.png'
+import Logo from '@/assets/logo.png'
 export default function Page() {
 
     return (
@@ -27,12 +27,35 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-            <div className="relative hidden bg-muted lg:block">
-                <img
-                    src="/placeholder.svg"
-                    alt="Image"
-                    className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+            <div className="relative hidden lg:block flex flex-col bg-black">
+                <Image
+                    fill
+                    src={ImageBG.src}
+                    alt="bg-signup"
+                    className="z-0 object-cover"
                 />
+
+                <div className="relative z-10 h-full flex flex-col">
+                    <div className="pl-48 pt-10 relative">
+                        <Image
+                            src={Logo.src}
+                            width={Logo.width}
+                            height={Logo.height}
+                            alt="logo"
+                        />
+                    </div>
+                    <div className="w-full flex flex-col items-center justify-center w-full">
+                        <div className="flex flex-col items-center text-center">
+                            <h1 className="text-5xl font-extrabold text-white mb-4">
+                                Welcome to <span className="text-blue-600">DARU GAMING</span>
+                            </h1>
+
+                        </div>
+                        <p className="text-zinc-400 max-w-md text-center w-full">
+                            Your ultimate destination for the best PC games! Explore our exclusive selection and get ready for an incredible gaming experience. Take advantage of the offers and dive into fantastic worlds with just one click
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     )

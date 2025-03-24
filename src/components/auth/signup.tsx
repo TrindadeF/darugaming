@@ -140,16 +140,16 @@ function SignUp({
                     </Form>
                     <div className="mt-4 text-center text-xs p-0 m-0">
                         Já tem uma conta?{" "}
-                        <Link href="/login" className="underline underline-offset-4">
+                        <Link href="/signin" className="underline underline-offset-4">
                             Faça login
                         </Link>
                         <div className="mt-4 text-center text-xs p-0 m-0">
                             Ao registrar, voce concorda com os nossos{" "}
-                            <Link href="/login" className="underline underline-offset-4">
+                            <Link href="/signin" className="underline underline-offset-4">
                                 Termos de uso
                             </Link>{" "}
                             e{" "}
-                            <Link href="/login" className="underline underline-offset-4">
+                            <Link href="/signin" className="underline underline-offset-4">
                                 Políticas de privacidade
                             </Link>
                         </div>
