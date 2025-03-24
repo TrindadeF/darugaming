@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 
 function NavMenu() {
     const pathname = usePathname()
-    if (pathname.includes('signin') || pathname.includes('signout')) return null
+    if (pathname.includes('signin') || pathname.includes('signup')) return null
     return (
         <NavigationMenu className="max-w-full ">
             <NavigationMenuList className="grid grid-cols-3 items-center w-full px-4 p-1 bg-transparent">
