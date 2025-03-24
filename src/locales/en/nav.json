@@ -1,6 +1,6 @@
 {
     "user": {
-        "signIn": "Sign in",
+        "signin": "Sign in",
         "profile": "Profile",
         "orders": "Orders",
         "logout": "Log out"

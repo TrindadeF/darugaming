@@ -59,7 +59,7 @@ export default function LanguageChanger() {
             <SelectLabel>{t('language.selectLabel')}</SelectLabel>
             {Object.entries(LANGUAGE_MAP).map(([code, key]) => (
               <SelectItem key={code} value={code}>
-                {t(`langauge.${key}`)}
+                {t(`language.${key}`)}
               </SelectItem>
             ))}
           </SelectGroup>

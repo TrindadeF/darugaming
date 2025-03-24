@@ -45,7 +45,7 @@ export function UserNav() {
 
     if (!session) return (
         <Button className="w-20" onClick={() => router.push('/signin')}>
-            {t('signin')}
+            {t('user.signin')}
         </Button>
     )
 

@@ -1,6 +1,6 @@
 {
     "user": {
-        "signIn": "Entrar",
+        "signin": "Entrar",
         "profile": "Perfil",
         "orders": "Pedidos",
         "logout": "Sair"
