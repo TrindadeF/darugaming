@@ -13,9 +13,18 @@ export function FontProvider({ children, defaultFont }: { children: React.ReactN
     const [font, setFont] = useState(defaultFont)
 
     useEffect(() => {
-        document.documentElement.className = font
-        localStorage.setItem('font', font)
-    }, [font])
+        const root = document.documentElement;
+        root.classList.remove(
+            "geist",
+            "inter",
+            "manrope",
+            "geist-mono",
+            "geist-sans"
+        );
+        root.classList.add(font.replace("--font-", ""));
+
+        document.cookie = `font=${font};path=/;`;
+    }, [font]);
 
     return (
         <FontContext.Provider value={{ font, setFont }}>

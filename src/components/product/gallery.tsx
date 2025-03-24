@@ -49,7 +49,7 @@ const ProductGallery = ({
   }, [carouselApi]);
 
   return (
-    <section className="">
+    <section className="pb-13">
       <div className="container mx-auto max-w-7xl overflow-hidden p-4">
         <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
           <div className="flex flex-col gap-4">

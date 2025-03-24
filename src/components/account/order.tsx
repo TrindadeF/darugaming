@@ -1,153 +1,86 @@
-"use client";
+'use client';
 
-import {
-    ColumnDef,
-    flexRender,
-    getCoreRowModel,
-    useReactTable,
-    getPaginationRowModel,
-    ColumnFiltersState,
-    getFilteredRowModel,
-    SortingState,
-    VisibilityState,
-    getSortedRowModel,
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
+import { DataTable } from "../ui/data-table";
+import { DataTableColumnHeader } from "../ui/data-table-column-header";
 
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
+const mockOrders: Order[] = [
+    {
+        _id: "order_001",
+        userId: "user_123",
+        number: "ORD-20240321-001",
+        status: 1,
+        type: 2,
+        amount: 199.99,
+        currency: "USD",
+        quantity: 1,
+        items: [
+            {
+                productId: "prod_001",
+                quantity: 2,
+                licenseKey: "ABC123-XYZ789",
+            },
+            {
+                productId: "prod_002",
+                quantity: 1,
+                attribute: "Color: Red",
+            },
+        ],
+        createdAt: new Date("2024-03-20T12:00:00Z"),
+        updatedAt: new Date("2024-03-21T15:30:00Z"),
+    },
+    {
+        _id: "order_002",
+        userId: "user_456",
+        topupId: 98765,
+        transactionId: 65432,
+        number: "ORD-20240321-002",
+        status: 2,
+        type: 1,
+        topupData: "Top-up for mobile number +123456789",
+        amount: 50.0,
+        currency: "EUR",
+        items: [
+            {
+                productId: "prod_003",
+                quantity: 5,
+            },
+        ],
+        createdAt: new Date("2024-03-21T10:00:00Z"),
+    },
+];
 
 
-import { useRef, useState } from "react";
-import { Input } from "../ui/input";
-import { Card } from "../ui/card";
-import { DataTablePagination } from "../ui/table-pagination";
-import { DataTableViewOptions } from "../ui/table-column-options";
-import { ScrollArea, ScrollBar } from "../ui/scroll-area";
-
-
-interface DataTableProps<TData, TValue> {
-    columns: ColumnDef<TData, TValue>[];
-    data: TData[];
-    handleRowClick: (data: TData) => void;
+export const column: ColumnDef<Order>[] = [
+    {
+        accessorKey: "items",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="items" />
+        ),
+        accessorFn: (row) => row.items.map(item => item.productId) || "N/A",
+    },
+    {
+        accessorKey: "quantity",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="quantity" />
+        ),
+        accessorFn: (row) => row.quantity || "N/A",
+    },
+    {
+        accessorKey: "amount",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="amount" />
+        ),
+        accessorFn: (row) => row.amount || "N/A",
+    },
+    {
+        accessorKey: "status",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="status" />
+        ),
+        accessorFn: (row) => row.status || "N/A",
+    },
+];
+export function OrderPage() {
+    return <DataTable data={mockOrders} handleRowClick={() => { }} columns={column} />
 }
-
-export function DataTable<TData, TValue>({
-    columns,
-    data,
-
-    handleRowClick,
-}: DataTableProps<TData, TValue>) {
-
-
-    const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-    const [rowSelection, setRowSelection] = useState({});
-
-    const [globalFilter, setGlobalFilter] = useState<string>("");
-    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-    const [sorting, setSorting] = useState<SortingState>([]);
-    const table = useReactTable({
-        data,
-        columns,
-        onSortingChange: setSorting,
-        onColumnFiltersChange: setColumnFilters,
-        getFilteredRowModel: getFilteredRowModel(),
-        getSortedRowModel: getSortedRowModel(),
-        onColumnVisibilityChange: setColumnVisibility,
-        onGlobalFilterChange: setGlobalFilter,
-        getCoreRowModel: getCoreRowModel(),
-        onRowSelectionChange: setRowSelection,
-        getPaginationRowModel: getPaginationRowModel(),
-        state: {
-            sorting,
-            columnFilters,
-            columnVisibility,
-            globalFilter,
-            rowSelection,
-        },
-    });
-
-    return (
-        <ScrollArea className="w-full whitespace-nowrap rounded-md border">
-            <div className="pace-y-8 flex flex-col p-4 gap-4 w-full">
-                <Card>
-                    <div className="flex items-center p-4 gap-4 overflow-x-auto">
-                        <Input
-                            placeholder="Pesquisar..."
-                            value={globalFilter ?? ""}
-                            onChange={(event) => setGlobalFilter(event.target.value)}
-                            className="max-w-sm"
-                        />
-                        <DataTableViewOptions table={table} />
-                    </div>
-                </Card>
-                <Card>
-                    <div className="overflow-x-auto">
-                        <Table className="min-w-full">
-                            <TableHeader>
-                                {table.getHeaderGroups().map((headerGroup) => (
-                                    <TableRow key={headerGroup.id}>
-                                        {headerGroup.headers.map((header) => {
-                                            return (
-                                                <TableHead key={header.id}>
-                                                    {header.isPlaceholder
-                                                        ? null
-                                                        : flexRender(
-                                                            header.column.columnDef.header,
-                                                            header.getContext()
-                                                        )}
-                                                </TableHead>
-                                            );
-                                        })}
-                                    </TableRow>
-                                ))}
-                            </TableHeader>
-                            <TableBody>
-                                {table.getRowModel().rows?.length ? (
-                                    table.getRowModel().rows.map((row) => (
-                                        <TableRow
-                                            key={row.id}
-                                            data-state={row.getIsSelected() && "selected"}
-                                            onClick={
-                                                handleRowClick
-                                                    ? () => handleRowClick(row.original)
-                                                    : undefined
-                                            }
-                                            style={{ cursor: "pointer" }}
-                                        >
-                                            {row.getVisibleCells().map((cell) => (
-                                                <TableCell key={cell.id}>
-                                                    {flexRender(
-                                                        cell.column.columnDef.cell,
-                                                        cell.getContext()
-                                                    )}
-                                                </TableCell>
-                                            ))}
-                                        </TableRow>
-                                    ))
-                                ) : (
-                                    <TableRow>
-                                        <TableCell
-                                            colSpan={columns.length}
-                                            className="h-24 text-center"
-                                        >
-                                            Sem resultados.
-                                        </TableCell>
-                                    </TableRow>
-                                )}
-                            </TableBody>
-                        </Table>
-                    </div>
-                    <DataTablePagination table={table} />
-                </Card>
-            </div>
-            <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-    );
-}
-

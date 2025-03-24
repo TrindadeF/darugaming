@@ -1,3 +1,4 @@
+'use server';
 
 import Image from "next/image";
 import BgStars from "@/assets/background-stars.png";
@@ -7,22 +8,37 @@ import { ProductCollection } from "@/components/product/colection";
 import { BuyProduct } from "@/components/product/buy";
 import ProductRecommendation from "@/components/product/recomendation";
 import { ProductReview } from "@/components/product/review";
-import { translateText } from "@/lib/translator";
+// import { translateText } from "@/lib/translator";
 import { TargetLanguageCode } from "deepl-node";
-import { Metadata } from "next";
+
 import i18nConfig from "@/i18nConfig";
 import initTranslations from "@/app/i18n";
+
 const i18nNamespaces = ['product'];
+<<<<<<< HEAD
 export async function generateMetadata(props: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
   const { slug, locale } = await props.params;
+=======
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string, slug: string }> }) {
+  const { slug, locale } = await params;
+>>>>>>> a492cb071cac4c71a27da4a7e6324a5ddaa27c07
   const res = await fetch(`/api/product/metadata/${slug}`);
-  if (!res.ok) return { title: '', description: '' }
-  const product: Product = await res.json()
-  const title = await translateText(product.title, locale.toUpperCase() as TargetLanguageCode);
-  const description = await translateText(product.metaDescription || '', locale.toUpperCase() as TargetLanguageCode);
-  return {
-    title, description
+  if (!res.ok) {
+
+    return ({
+      title: 'sem title',
+      description: 'sem description'
+    })
   }
+  const product: Product = await res.json()
+  // const title = await translateText(product.title, locale.toUpperCase() as TargetLanguageCode) || 'title';
+  // const description = await translateText(product.metaDescription || '', locale.toUpperCase() as TargetLanguageCode) || 'description';
+  const title = product.title || 'title'
+  const description = product.metaDescription || 'description'
+  return ({
+    title, description
+  })
 }
 
 export default async function Page(props: {
@@ -33,7 +49,7 @@ export default async function Page(props: {
     notFound();
   }
 
-  const res = await fetch(`/api/project/${slug}`)
+  const res = await fetch(`/api/product/${slug}`)
   if (!res.ok) {
     toast("Ops,algo deu errado", {
       description: ' A mercadoria escolhida não existe'

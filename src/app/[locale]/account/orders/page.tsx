@@ -1,55 +1,10 @@
-'use client';
-import { DataTable } from "@/components/ui/data-table";
-import { DataTableColumnHeader } from "@/components/ui/data-table-column-header";
+
+
+import { OrderPage } from "@/components/account/order";
 import { Separator } from "@/components/ui/separator";
 
-import { ColumnDef } from "@tanstack/react-table";
-const mockOrders: Order[] = [
-    {
-        _id: "order_001",
-        userId: "user_123",
-        number: "ORD-20240321-001",
-        status: 1,
-        type: 2,
-        amount: 199.99,
-        currency: "USD",
-        quantity: 1,
-        items: [
-            {
-                productId: "prod_001",
-                quantity: 2,
-                licenseKey: "ABC123-XYZ789",
-            },
-            {
-                productId: "prod_002",
-                quantity: 1,
-                attribute: "Color: Red",
-            },
-        ],
-        createdAt: new Date("2024-03-20T12:00:00Z"),
-        updatedAt: new Date("2024-03-21T15:30:00Z"),
-    },
-    {
-        _id: "order_002",
-        userId: "user_456",
-        topupId: 98765,
-        transactionId: 65432,
-        number: "ORD-20240321-002",
-        status: 2,
-        type: 1,
-        topupData: "Top-up for mobile number +123456789",
-        amount: 50.0,
-        currency: "EUR",
-        items: [
-            {
-                productId: "prod_003",
-                quantity: 5,
-            },
-        ],
-        createdAt: new Date("2024-03-21T10:00:00Z"),
-    },
-];
 
+<<<<<<< HEAD
 
 const column: ColumnDef<Order>[] = [
     {
@@ -82,6 +37,9 @@ const column: ColumnDef<Order>[] = [
     },
 ];
 export default function Page() {
+=======
+export default async function Page() {
+>>>>>>> a492cb071cac4c71a27da4a7e6324a5ddaa27c07
     return <div className="space-y-6">
         <div>
             <h3 className="text-lg font-medium">Orders</h3>
@@ -90,6 +48,6 @@ export default function Page() {
             </p>
         </div>
         <Separator />
-        <DataTable data={mockOrders} handleRowClick={() => { }} columns={column} />
+        <OrderPage />
     </div>
 }
