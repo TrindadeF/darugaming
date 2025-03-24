@@ -1,5 +1,3 @@
-"use client";
-
 import {
     Select,
     SelectContent,
@@ -14,12 +12,12 @@ import { Loader2, Wallet } from "lucide-react";
 import { useState } from "react";
 import { Currency, useCurrency } from "../providers/currency";
 import { CURRENCY_NAMES } from "@/lib/helper";
-
-
+import { useTranslation } from "react-i18next";
 
 export default function CurrencyChanger() {
     const [open, setOpen] = useState(false);
     const { currency, setCurrency, rates, isLoading } = useCurrency();
+    const { t } = useTranslation('home');
 
     const handleChange = (value: Currency) => {
         setCurrency(value);
@@ -37,19 +35,19 @@ export default function CurrencyChanger() {
 
             <Select open={open} onOpenChange={setOpen} onValueChange={handleChange}>
                 <SelectTrigger className="hidden lg:flex w-[180px] rounded-l-none">
-                    <SelectValue placeholder={CURRENCY_NAMES[currency]} />
+                    <SelectValue placeholder={t(CURRENCY_NAMES[currency])} />
                 </SelectTrigger>
 
                 <SelectContent>
                     <SelectGroup>
-                        <SelectLabel>Moedas Disponíveis</SelectLabel>
+                        <SelectLabel>{t('currency.availableCurrencies')}</SelectLabel>
                         {Object.keys(rates).map((curr) => (
                             <SelectItem
                                 key={curr}
                                 value={curr}
                                 disabled={!rates[curr]}
                             >
-                                {CURRENCY_NAMES[curr as Currency]} ({curr})
+                                {t(`currency.${CURRENCY_NAMES[curr as Currency]}`)} ({curr})
                             </SelectItem>
                         ))}
                     </SelectGroup>

@@ -2,15 +2,15 @@ import { format, Locale } from "date-fns";
 import { enUS, fr, de, es, pt, ru, ja, ko, zhCN } from "date-fns/locale";
 
 export const LANGUAGE_MAP = {
-  br: "Português",
-  en: "Inglês",
+  br: "portuguese",
+  en: "english"
 } as const;
 
 export const CURRENCY_NAMES = {
-  USD: "Dólar Americano",
-  EUR: "Euro",
-  BRL: "Real Brasileiro",
-  ARS: "Peso Argentino",
+  USD: "usd",
+  EUR: "eur",
+  BRL: "brl",
+  ARS: "ars"
 } as const;
 
 export const languages = [

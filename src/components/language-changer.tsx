@@ -1,10 +1,7 @@
-"use client";
-
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import i18nConfig from "@/i18nConfig";
-
 import {
   Select,
   SelectContent,
@@ -21,7 +18,7 @@ import { useState } from "react";
 
 export default function LanguageChanger() {
   const [open, setOpen] = useState(false);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation('home');
   const currentLocale = i18n.language;
   const router = useRouter();
   const currentPathname = usePathname();
@@ -29,22 +26,15 @@ export default function LanguageChanger() {
   const handleChange = (e: string) => {
     const newLocale = e;
 
-
     const days = 30;
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${date.toUTCString()};path=/`;
 
-
-    if (
-      currentLocale === i18nConfig.defaultLocale &&
-      !i18nConfig.prefixDefault
-    ) {
+    if (currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault) {
       router.push("/" + newLocale + currentPathname);
     } else {
-      router.push(
-        currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
-      );
+      router.push(currentPathname.replace(`/${currentLocale}`, `/${newLocale}`));
     }
 
     router.refresh();
@@ -59,16 +49,19 @@ export default function LanguageChanger() {
         <Flag />
       </Button>
       <Select open={open} onOpenChange={setOpen} onValueChange={handleChange}>
-        <SelectTrigger className=" hidden lg:flex w-[180px] rounded-l-none">
+        <SelectTrigger className="hidden lg:flex w-[180px] rounded-l-none">
           <SelectValue
-            placeholder={LANGUAGE_MAP[currentLocale as "br" | "en"]}
+            placeholder={t(`language.${LANGUAGE_MAP[currentLocale as keyof typeof LANGUAGE_MAP]}`)}
           />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>Selecione sua localização</SelectLabel>
-            <SelectItem value="br">Português</SelectItem>
-            <SelectItem value="en">Inglês</SelectItem>
+            <SelectLabel>{t('language.selectLabel')}</SelectLabel>
+            {Object.entries(LANGUAGE_MAP).map(([code, key]) => (
+              <SelectItem key={code} value={code}>
+                {t(`langauge.${key}`)}
+              </SelectItem>
+            ))}
           </SelectGroup>
         </SelectContent>
       </Select>

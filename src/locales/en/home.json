@@ -10,5 +10,17 @@
         "emptyResults": "No results found",
         "settingsHeading": "Settings",
         "myAccount": "My Account"
+    },
+    "language": {
+        "selectLabel": "Select your language",
+        "portuguese": "Portuguese",
+        "english": "English"
+    },
+    "currency": {
+        "availableCurrencies": "Available Currencies",
+        "usd": "US Dollar",
+        "eur": "Euro",
+        "brl": "Brazilian Real",
+        "ars": "Argentine Peso"
     }
 }
