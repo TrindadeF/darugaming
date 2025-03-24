@@ -1,7 +1,7 @@
 
 
 import { BackgroundWrapper } from "@/components/bg-wrapper";
-import { ThemeProvider } from "@/components/providers/color";
+import { ColorProvider } from "@/components/providers/color";
 import { HeroCarousel } from "@/components/widgets/hero-carousel";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -23,10 +23,10 @@ type Story = StoryObj<typeof HeroCarousel>;
 
 export const Default: Story = {
     render: () =>
-        <ThemeProvider>
+        <ColorProvider>
             <BackgroundWrapper>
                 <HeroCarousel />
             </BackgroundWrapper>
-        </ThemeProvider>,
+        </ColorProvider>,
 };
 
