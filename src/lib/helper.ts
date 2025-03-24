@@ -1,5 +1,6 @@
-import { format } from "date-fns";
+import { format, Locale } from "date-fns";
 import { enUS, fr, de, es, pt, ru, ja, ko, zhCN } from "date-fns/locale";
+
 export const LANGUAGE_MAP = {
   br: "Português",
   en: "Inglês",
@@ -7,8 +8,9 @@ export const LANGUAGE_MAP = {
 
 export const CURRENCY_NAMES = {
   USD: "Dólar Americano",
-  BRL: "Real Brasileiro",
   EUR: "Euro",
+  BRL: "Real Brasileiro",
+  ARS: "Peso Argentino",
 } as const;
 
 export const languages = [
@@ -41,3 +43,4 @@ export const formatDate = (date: Date, lang: string, formatStr = "PPPP") => {
   const locale = locales[lang] || enUS; // Default para inglês se a língua não for encontrada
   return format(date, formatStr, { locale });
 };
+

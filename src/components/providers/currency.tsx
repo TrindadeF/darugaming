@@ -34,8 +34,6 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         };
 
         fetchRates();
-        const interval = setInterval(fetchRates, 24 * 60 * 60 * 1000);
-        return () => clearInterval(interval);
     }, []);
 
     return (

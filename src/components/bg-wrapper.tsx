@@ -8,17 +8,16 @@ export function BackgroundWrapper({ children }: { children: React.ReactNode }) {
 
     return (
         <div className="relative w-full flex flex-col items-center justify-center">
-            {/* Imagem de fundo otimizada */}
+
             <Image
                 src={backgroundStars}
                 alt="Background stars"
                 fill
                 priority
-                quality={80}
+                quality={100}
                 className="object-cover z-0"
             />
 
-            {/* Overlay de cor */}
             <div
                 className="absolute inset-0 z-10"
                 style={{
