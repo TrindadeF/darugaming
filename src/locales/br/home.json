@@ -1,5 +1,14 @@
 {
-  "header": "teste",
-  "greeting": "teste",
-  "page2": "teste"
+  "title": "Mais vendidos",
+  "description": "Os produtos mais vendidos da nossa página",
+  "infiniteMovingPartners": {
+    "title": "Parceiros"
+  },
+  "globalSearch": {
+    "searchPlaceholder": "Pesquisar...",
+    "inputPlaceholder": "Pesquise um jogo",
+    "emptyResults": "Nenhum resultado encontrado",
+    "settingsHeading": "Configurações",
+    "myAccount": "Minha Conta"
+  }
 }

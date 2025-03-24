@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,20 +17,20 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
 import { z } from "zod";
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Separator } from "@/components/ui/separator";
 import { Apple } from "lucide-react";
 import Link from "next/link";
 import { registerSchema } from "@/schemas/register";
+import { useTranslation } from "react-i18next";
 
 function SignUp({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+    const { t } = useTranslation('auth')
     const form = useForm<z.infer<typeof registerSchema>>({
         resolver: zodResolver(registerSchema),
         defaultValues: {
@@ -49,10 +48,8 @@ function SignUp({
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card className="shadow-none border-none">
                 <CardHeader>
-                    <CardTitle className="text-2xl">Crie sua conta</CardTitle>
-                    <CardDescription>
-                        Preencha seus dados para se registrar em nossa página.
-                    </CardDescription>
+                    <CardTitle className="text-2xl">{t('signUp.createAccount')}</CardTitle>
+                    <CardDescription>{t('signUp.registerInstructions')}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
@@ -65,11 +62,11 @@ function SignUp({
                                 name="name"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Nome Completo</FormLabel>
+                                        <FormLabel>{t('signUp.nameLabel')}</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="e.g. Luis Paulo" {...field} />
+                                            <Input placeholder={t('signUp.namePlaceholder')} {...field} />
                                         </FormControl>
-                                        <FormDescription>Digite seu nome</FormDescription>
+                                        <FormDescription>{t('signUp.nameDescription')}</FormDescription>
                                         <FormMessage />
                                     </FormItem>
                                 )}
@@ -79,11 +76,11 @@ function SignUp({
                                 name="email"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Email</FormLabel>
+                                        <FormLabel>{t('signUp.emailLabel')}</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="luispaulo@gmail.com" {...field} />
+                                            <Input placeholder={t('signUp.emailPlaceholder')} {...field} />
                                         </FormControl>
-                                        <FormDescription>Digite seu Email</FormDescription>
+                                        <FormDescription>{t('signUp.emailDescription')}</FormDescription>
                                         <FormMessage />
                                     </FormItem>
                                 )}
@@ -93,20 +90,19 @@ function SignUp({
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Senha</FormLabel>
+                                        <FormLabel>{t('signUp.passwordLabel')}</FormLabel>
                                         <FormControl>
                                             <Input
                                                 type="password"
-                                                placeholder="Digite sua senha aqui."
+                                                placeholder={t('signUp.passwordPlaceholder')}
                                                 {...field}
                                             />
                                         </FormControl>
-                                        <FormDescription>Digite sua senha</FormDescription>
+                                        <FormDescription>{t('signUp.passwordDescription')}</FormDescription>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-
 
                             <Separator />
                             <div>
@@ -126,37 +122,38 @@ function SignUp({
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Registrar com o Google
+                                    {t('signUp.googleButton')}
                                 </Button>
                                 <Button variant="outline" className="w-full my-2 rounded">
-                                    <Apple /> Registrar com a Apple
+                                    <Apple /> {t('signUp.appleButton')}
                                 </Button>
                             </div>
                             <Separator />
                             <Button type="submit" className="w-full rounded">
-                                Registrar
+                                {t('signUp.submitButton')}
                             </Button>
                         </form>
                     </Form>
                     <div className="mt-4 text-center text-xs p-0 m-0">
-                        Já tem uma conta?{" "}
+                        {t('signUp.existingAccount')}{" "}
                         <Link href="/signin" className="underline underline-offset-4">
-                            Faça login
+                            {t('signUp.login')}
                         </Link>
                         <div className="mt-4 text-center text-xs p-0 m-0">
-                            Ao registrar, voce concorda com os nossos{" "}
+                            {t('signUp.termsText')}{" "}
                             <Link href="/signin" className="underline underline-offset-4">
-                                Termos de uso
+                                {t('signUp.terms')}
                             </Link>{" "}
-                            e{" "}
+                            {t('and')}{" "}
                             <Link href="/signin" className="underline underline-offset-4">
-                                Políticas de privacidade
+                                {t('signUp.privacy')}
                             </Link>
                         </div>
                     </div>
                 </CardContent>
             </Card>
-        </div >
+        </div>
     );
 }
+
 export { SignUp }

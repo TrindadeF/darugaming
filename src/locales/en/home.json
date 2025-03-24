@@ -1,5 +1,14 @@
 {
-    "header": "test",
-    "greeting": "test",
-    "page2": "test"
+    "title": "Best Sellers",
+    "description": "The best-selling products on our page",
+    "infiniteMovingPartners": {
+        "title": "Partners"
+    },
+    "globalSearch": {
+        "searchPlaceholder": "Search...",
+        "inputPlaceholder": "Search a game",
+        "emptyResults": "No results found",
+        "settingsHeading": "Settings",
+        "myAccount": "My Account"
+    }
 }

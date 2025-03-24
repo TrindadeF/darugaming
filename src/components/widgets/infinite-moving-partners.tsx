@@ -2,14 +2,16 @@
 
 import React from "react";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
+import { useTranslation } from "react-i18next";
 
 function InfiniteMovingPartners() {
+    const { t } = useTranslation('home');
     return (
-        <div className="container mx-auto max-w-7xl overflow-hidden p-4">
+        <div className="container mx-auto max-w-7xl overflow-hidden p-4 md:p-0">
             <div>
                 <div className="flex flex-col gap-4">
                     <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl text-white">
-                        Partners
+                        {t('infiniteMovingPartners.title')}
                     </h2>
                 </div>
                 <InfiniteMovingCards

@@ -28,12 +28,14 @@ import { Separator } from "@/components/ui/separator";
 import { Apple } from "lucide-react";
 import Link from "next/link";
 import { loginSchema } from "@/schemas/login";
+import { useTranslation } from "react-i18next";
 
 
 function SignIn({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+    const { t } = useTranslation('auth')
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -48,9 +50,9 @@ function SignIn({
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card className="border-none shadow-none">
                 <CardHeader>
-                    <CardTitle className="text-2xl">Bem vindo novamente!</CardTitle>
+                    <CardTitle className="text-2xl">{t('signIn.welcomeBack')}</CardTitle>
                     <CardDescription>
-                        Preencha seus dados para fazer login em nossa página.
+                        {t('signIn.loginInstructions')}
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -70,10 +72,10 @@ function SignIn({
                                 clipRule="evenodd"
                             />
                         </svg>
-                        Entrar com o Google
+                        {t('signIn.googleButton')}
                     </Button>
                     <Button variant="outline" className="w-full my-2 rounded">
-                        <Apple /> Entrar com a Apple
+                        <Apple /> {t('signIn.appleButton')}
                     </Button>
                     <Separator />
 
@@ -88,11 +90,11 @@ function SignIn({
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Email</FormLabel>
+                                            <FormLabel>{t('signIn.emailLabel')}</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="youremail@gmail.com" {...field} />
+                                                <Input placeholder={t('signIn.emailPlaceholder')} {...field} />
                                             </FormControl>
-                                            <FormDescription>Digite seu Email</FormDescription>
+                                            <FormDescription>{t('signIn.emailDescription')}</FormDescription>
                                             <FormMessage />
                                         </FormItem>
                                     )}
@@ -102,29 +104,29 @@ function SignIn({
                                     name="password"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Senha</FormLabel>
+                                            <FormLabel>{t('signIn.passwordLabel')}</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     type="password"
-                                                    placeholder="sua senha"
+                                                    placeholder={t('signIn.passwordPlaceholder')}
                                                     {...field}
                                                 />
                                             </FormControl>
-                                            <FormDescription>Digite sua senha</FormDescription>
+                                            <FormDescription> {t('signIn.passwordDescription')}</FormDescription>
                                             <FormMessage />
                                         </FormItem>
                                     )}
                                 />
                             </div>
                             <Button type="submit" className="w-full rounded">
-                                Entrar
+                                {t('signIn.submitButton')}
                             </Button>
                         </form>
                     </Form>
                     <div className="mt-4 text-center text-sm">
-                        Ainda não tem uma conta?{" "}
+                        {t('signIn.noAccount')}{" "}
                         <Link href="/signup" className="underline underline-offset-4">
-                            Criar
+                            {t('signIn.createAccount')}
                         </Link>
                     </div>
                 </CardContent>

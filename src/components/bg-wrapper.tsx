@@ -21,13 +21,12 @@ export function BackgroundWrapper({ children }: { children: React.ReactNode }) {
             <div
                 className="absolute inset-0 z-10"
                 style={{
-                    backgroundColor: `${color}CC`, // CC = 80% de opacidade
+                    backgroundColor: `${color}CC`,
                     mixBlendMode: "multiply",
                     transition: "background-color 0.3s ease"
                 }}
             />
 
-            {/* Conteúdo */}
             <div className="relative z-20">
                 {children}
             </div>

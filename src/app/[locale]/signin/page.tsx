@@ -1,4 +1,6 @@
+
 'use client';
+
 import { AuthFooter } from "@/components/auth/footer";
 
 import { SignIn } from "@/components/auth/signin";
@@ -8,8 +10,17 @@ import Image from 'next/image';
 import ImageBG from '@/assets/authbg.png'
 import Logo from '@/assets/logo.png'
 
+
+import { useTranslation } from "react-i18next";
+
+
+
+const i18nNamespaces = ['auth'];
+
+
 export default function Page() {
 
+    const { t } = useTranslation(i18nNamespaces)
     return (
         <div className="grid min-h-svh lg:grid-cols-2">
             <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -22,7 +33,7 @@ export default function Page() {
                             <div className="flex w-fit items-center lg:pl-0 lg:pt-0 xl:pt-0">
                                 <ChevronLeft className="mr-3 h-[13px] w-[8px] text-zinc-950 dark:text-white" />
                                 <p className="ml-0 text-sm text-zinc-950 dark:text-white">
-                                    Back to the website
+                                    {t('backLink')}
                                 </p>
                             </div>
                         </Link>
@@ -35,7 +46,7 @@ export default function Page() {
                 <Image
                     fill
                     src={ImageBG.src}
-                    alt="bg-signup"
+                    alt={t('alt.background')}
                     className="z-0 object-cover"
                 />
 
@@ -45,12 +56,12 @@ export default function Page() {
                             src={Logo.src}
                             width={Logo.width}
                             height={Logo.height}
-                            alt="logo"
+                            alt={t('alt.logo')}
                         />
                     </div>
                     <div className="w-full flex flex-col items-center justify-center w-full">
                         <h1 className="text-5xl font-extrabold text-white mb-4">
-                            Welcome to <span className="text-blue-600">DARU GAMING</span>
+                            {t('welcome')} <span className="text-blue-600">DARU GAMING</span>
                         </h1>
                     </div>
                 </div>
