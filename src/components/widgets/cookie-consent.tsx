@@ -7,8 +7,6 @@ import { cookies } from 'next/headers';
 
 function CookieConsent(props: { handleCookieConsent: (consent: string) => void }) {
 
-
-
     return (
         <Banner rounded="default" className="shadow-lg shadow-black/5">
             <div className="w-full">

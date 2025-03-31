@@ -1,6 +1,3 @@
-
-
-
 import type { Meta, StoryObj } from "@storybook/react";
 import { mockItem } from "./cart.stories";
 import { Card } from "@/components/product/card";

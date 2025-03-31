@@ -1,7 +1,9 @@
+'use client'
+
 import * as React from "react"
 import { Search } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { useTranslation } from "react-i18next"
+
 import {
     SearchBox,
     Hits,
@@ -23,8 +25,11 @@ import {
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
 
+
+
 function CustomHit({ hit }: { hit: any }) {
     const router = useRouter()
+
     return (
         <CommandItem
             key={hit.objectID}
@@ -39,17 +44,19 @@ function CustomHit({ hit }: { hit: any }) {
 }
 
 function GlobalSearch() {
-    const { t } = useTranslation()
     const router = useRouter()
     const [open, setOpen] = React.useState(false)
+
 
     React.useEffect(() => {
         const handleShortcut = (e: KeyboardEvent) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault()
                 setOpen(prev => !prev)
+
             }
         }
+
         document.addEventListener('keydown', handleShortcut)
         return () => document.removeEventListener('keydown', handleShortcut)
     }, [])
@@ -62,7 +69,7 @@ function GlobalSearch() {
                     className="w-[150px] md:w-[230px] justify-between text-muted-foreground"
                 >
                     <Search className="h-4 w-4 opacity-50" />
-                    {t('globalSearch.searchPlaceholder')}
+                    Pesquisar...
                     <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
                         <span className="text-xs">⌘</span>K
                     </kbd>
@@ -70,22 +77,26 @@ function GlobalSearch() {
             </PopoverTrigger>
             <PopoverContent className="w-[230px] p-0">
                 <Command shouldFilter={false}>
-                    <CommandInputWithMeili
-                        placeholder={t('globalSearch.inputPlaceholder')}
-                        className="focus-visible:ring-0 "
-                    />
+                    <CommandInputWithMeili placeholder="Search a game" className="focus-visible:ring-0 " />
+                    {/* <SearchBox
+
+                        className={cn(
+                            "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50")}
+                        submit={<></>}
+                    /> */}
                     <CommandList>
                         <Configure hitsPerPage={5} />
                         <Hits hitComponent={CustomHit} />
-                        <CommandEmpty>{t('globalSearch.emptyResults')}</CommandEmpty>
-                        <CommandGroup heading={t('globalSearch.settingsHeading')}>
+                        <CommandEmpty>Nenhum resultado encontrado</CommandEmpty>
+
+                        <CommandGroup heading="Configurações">
                             <CommandItem
                                 onSelect={() => {
                                     router.push('/account')
                                     setOpen(false)
                                 }}
                             >
-                                {t('globalSearch.myAccount')}
+                                Minha Conta
                             </CommandItem>
                         </CommandGroup>
                     </CommandList>

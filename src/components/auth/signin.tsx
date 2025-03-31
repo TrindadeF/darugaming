@@ -29,13 +29,23 @@ import { Apple } from "lucide-react";
 import Link from "next/link";
 import { loginSchema } from "@/schemas/login";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
+
 
 
 function SignIn({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"div">) {
-    const { t } = useTranslation('auth')
+    const router = useRouter()
+    const { t, i18n } = useTranslation('auth')
+    const locale = i18n.language;;
+
+    const handleGoogleLogin = () => {
+        router.push(`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google?locale=${locale}`);
+    };
+
+
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -56,7 +66,7 @@ function SignIn({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <Button variant="outline" className="w-full my-2 rounded">
+                    <Button variant="outline" className="w-full my-2 rounded" onClick={handleGoogleLogin}>
                         <svg
                             className="w-6 h-6 text-gray-800 dark:text-white"
                             aria-hidden="true"
@@ -92,7 +102,7 @@ function SignIn({
                                         <FormItem>
                                             <FormLabel>{t('signIn.emailLabel')}</FormLabel>
                                             <FormControl>
-                                                <Input placeholder={t('signIn.emailPlaceholder')} {...field} />
+                                                <Input type="email" placeholder={t('signIn.emailPlaceholder')} {...field} />
                                             </FormControl>
                                             <FormDescription>{t('signIn.emailDescription')}</FormDescription>
                                             <FormMessage />

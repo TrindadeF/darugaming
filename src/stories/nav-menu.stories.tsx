@@ -3,7 +3,7 @@ import { NavMenu } from "@/components/widgets/menu-nav";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof NavMenu> = {
-    title: "Components/Widgets/NavMenu",
+    title: "Components/Widgets  /NavMenu",
     component: NavMenu,
     tags: ["autodocs"],
     parameters: {
