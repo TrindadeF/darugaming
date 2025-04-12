@@ -19,7 +19,13 @@ import { MeilisearchProvier } from "@/components/providers/meilisearch";
 import { CartProvider } from "@/components/providers/cart";
 import { ThemeProvider } from "@/components/providers/theme";
 import { FontProvider } from "@/components/providers/font";
+
+
 import { cookies } from "next/headers";
+import { MainNav } from "@/components/widgets/main-nav";
+import { ZodProvider } from "@/components/providers/zodi18n";
+import { BackgroundWrapper } from "@/components/bg-wrapper";
+import { ColorProvider } from "@/components/providers/color";
 
 
 
@@ -49,24 +55,49 @@ const geistMono = Geist_Mono({
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  let title = "";
-  let description = "";
-
-  const metadata = metadataTranslations[locale as 'en' | 'br' | 'es'] || metadataTranslations["en"];
-  title = metadata.title;
-  description = metadata.description;
+  if (!i18nConfig.locales.includes(locale)) {
+    notFound();
+  }
+  const { t } = await initTranslations(locale, ['metadata']);
 
   return {
-    title,
-    description,
+    icons: {
+      icon: [
+        { url: "favicon-96x96.png", type: "image/png", sizes: "96x96" },
+        { url: "favicon.svg", type: "image/svg+xml" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    },
+    title: t('title'),
+    description: t('description'),
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASEURL}`),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: `${process.env.NEXT_PUBLIC_BASEURL}`,
+      siteName: "Por",
+      locale,
+      type: "website",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
   };
 }
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
-
-const i18nNamespaces = ['home', 'account', 'nav', 'footer', 'auth'];
+const i18nNamespaces = ['home', 'account', 'nav', 'footer', 'auth', 'about', 'form'];
 
 export default async function RootLayout({
   children,
@@ -86,7 +117,7 @@ export default async function RootLayout({
   const { resources } = await initTranslations(locale, i18nNamespaces);
   const session = await getServerSession();
   return (
-    <html lang={locale} dir={dir(locale)} suppressHydrationWarning>
+    <html lang={locale} dir={dir(locale)} suppressHydrationWarning className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${manrope.variable} antialiased`}
       >
@@ -104,20 +135,27 @@ export default async function RootLayout({
                   locale={locale}
                   resources={resources}
                 >
-                  <CurrencyProvider>
-                    <CartProvider>
-                      <NavMenu />
-                      {children}
-                      <Footer />
-                      <Toaster />
-                    </CartProvider>
-                  </CurrencyProvider>
+                  <ZodProvider>
+                    <CurrencyProvider>
+                      <ColorProvider>
+                        <BackgroundWrapper>
+                          <CartProvider>
+                            <NavMenu />
+                            <MainNav />
+                            {children}
+                            <Footer />
+                            <Toaster />
+                          </CartProvider>
+                        </BackgroundWrapper>
+                      </ColorProvider>
+                    </CurrencyProvider>
+                  </ZodProvider>
                 </TranslationsProvider>
               </MeilisearchProvier>
             </FontProvider>
           </ThemeProvider>
         </SessionProvider>
-      </body>
+      </body >
     </html >
   );
 }

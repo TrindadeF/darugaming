@@ -45,7 +45,7 @@ export function HeroCarousel() {
 
     return (
         <div
-            className="relative h-[500px] w-full transition-colors duration-1000"
+            className="relative h-[500px] w-full transition-colors duration-1000 max-w-screen"
         >
             <div className="relative mx-auto max-w-7xl px-4 h-full">
                 <Carousel

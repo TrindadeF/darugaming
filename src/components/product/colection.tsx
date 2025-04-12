@@ -100,7 +100,7 @@ function ProductCollection({ images, video }: ProductCollectionProps) {
                 {
                     images.map((image) => <SwiperSlide>
                         <div className="relative" style={{ paddingBottom: "56.25%" }}>
-                            <Image src={image.src} className="clip-path-images w-full h-full absolute" alt={image.alt} />
+                            <Image fill src={image.src} className="clip-path-images w-full h-full absolute" alt={image.alt} />
                         </div>
 
                     </SwiperSlide>)
@@ -146,6 +146,7 @@ function ProductCollection({ images, video }: ProductCollectionProps) {
                 {[video, ...images].map((media, index) => (
                     <SwiperSlide key={index} onClick={() => handleSlideClick(index)}>
                         <Image
+                            fill
                             src={'image' in media ? media.image.src : media.src}
                             className="clip-path-images"
                             alt={'image' in media ? media.image.alt : media.alt}

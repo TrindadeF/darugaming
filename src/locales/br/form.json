@@ -1,0 +1,36 @@
+{
+    "errors": {
+        "invalidType": "Esperado {expected}, recebido {received}",
+        "invalidLiteral": "Valor esperado: {expected}",
+        "unrecognizedKeys": "Chaves não reconhecidas no objeto",
+        "invalidEnumValue": "Valor inválido. Opções válidas: {options}",
+        "invalidUnion": "Valor não corresponde a nenhum formato permitido",
+        "invalidDate": "Data inválida",
+        "invalidString": {
+            "email": "Email inválido",
+            "url": "URL inválida",
+            "uuid": "UUID inválido",
+            "regex": "Formato inválido",
+            "default": "Texto inválido"
+        },
+        "tooSmall": {
+            "string": "Mínimo de {count} caracteres",
+            "number": "Valor mínimo: {minimum}",
+            "array": "Pelo menos {count} itens"
+        },
+        "tooBig": {
+            "string": "Máximo de {count} caracteres",
+            "number": "Valor máximo: {maximum}",
+            "array": "No máximo {count} itens"
+        },
+        "default": "Campo inválido"
+    },
+    "types": {
+        "string": "texto",
+        "number": "número",
+        "boolean": "booleano",
+        "date": "data",
+        "undefined": "vazio",
+        "null": "nulo"
+    }
+}

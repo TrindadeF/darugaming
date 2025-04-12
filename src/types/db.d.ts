@@ -59,6 +59,7 @@ interface ProductAttribute {
 
 interface Product extends Timestamps {
     _id: string;
+    key?: string;
     categoryId: string;
     deviceId?: string;
     platformId?: string;

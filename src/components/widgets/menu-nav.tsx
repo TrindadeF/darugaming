@@ -6,20 +6,22 @@ import {
     NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
-
 import CurrencyChanger from "./currency-changer";
 import LanguageChanger from "../language-changer";
 import { GlobalSearch } from "./global-search";
 import { UserNav } from "../account/user";
 import { usePathname } from "next/navigation";
+import { Cart } from "../ui/cart";
 
 function NavMenu() {
-    const pathname = usePathname()
-    if (pathname.includes('signin') || pathname.includes('signup')) return null
+    const pathname = usePathname();
+    if (pathname.includes('signin') || pathname.includes('signup')) return null;
+
     return (
-        <NavigationMenu className="max-w-full ">
-            <NavigationMenuList className="grid grid-cols-3 items-center w-full px-4 p-1 bg-transparent">
-                <div className="flex lg:gap-2 justify-self-start">
+        <NavigationMenu className="max-w-full bg-background py-2">
+            <NavigationMenuList className="flex items-center justify-center w-full md:gap-10">
+                {/* Esquerda */}
+                <div className="flex items-center lg:gap-2">
                     <NavigationMenuItem>
                         <CurrencyChanger />
                     </NavigationMenuItem>
@@ -27,17 +29,24 @@ function NavMenu() {
                         <LanguageChanger />
                     </NavigationMenuItem>
                 </div>
-                <NavigationMenuItem className="justify-self-center">
+
+                {/* Barra de pesquisa */}
+                <NavigationMenuItem className="flex-1 flex justify-center">
                     <GlobalSearch />
                 </NavigationMenuItem>
 
-
-                <NavigationMenuItem className="justify-self-end">
-                    <UserNav />
-                </NavigationMenuItem>
+                {/* Direita */}
+                <div className="flex items-center gap-2">
+                    <NavigationMenuItem>
+                        <Cart />
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <UserNav />
+                    </NavigationMenuItem>
+                </div>
             </NavigationMenuList>
         </NavigationMenu>
     );
 }
 
-export { NavMenu }
+export { NavMenu };

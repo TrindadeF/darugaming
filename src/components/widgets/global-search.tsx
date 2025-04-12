@@ -66,7 +66,7 @@ function GlobalSearch() {
             <PopoverTrigger asChild>
                 <Button
                     variant="outline"
-                    className="w-[150px] md:w-[230px] justify-between text-muted-foreground"
+                    className="w-[150px] md:w-[300px] justify-between text-muted-foreground  text-[11px] md:text-[14px] "
                 >
                     <Search className="h-4 w-4 opacity-50" />
                     Pesquisar...
@@ -75,7 +75,7 @@ function GlobalSearch() {
                     </kbd>
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[230px] p-0">
+            <PopoverContent className="w-[300px] p-0">
                 <Command shouldFilter={false}>
                     <CommandInputWithMeili placeholder="Search a game" className="focus-visible:ring-0 " />
                     {/* <SearchBox

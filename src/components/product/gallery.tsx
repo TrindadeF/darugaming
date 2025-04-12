@@ -49,15 +49,16 @@ const ProductGallery = ({
   }, [carouselApi]);
 
   return (
-    <section className="pb-13">
-      <div className="container mx-auto max-w-7xl overflow-hidden p-4">
-        <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
-          <div className="flex flex-col gap-4">
+    <section className="pb-13 w-screen md:w-full p-4 md:p-0">
+      <div className="container mx-auto max-w-7xl overflow-hidden py-4">
+        <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between w-full">
+          <div className=" flex-1 space-y-4 md:pr-8">
             <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl text-white">
               {title}
             </h2>
-            <p className="max-w-lg text-white">{description}</p>
+            <p className="text-white">{description}</p>
           </div>
+
           <div className="hidden shrink-0 gap-2 md:flex">
             <Button
               size="icon"

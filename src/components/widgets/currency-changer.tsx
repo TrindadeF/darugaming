@@ -26,6 +26,7 @@ export default function CurrencyChanger() {
     return (
         <div className="flex">
             <Button
+                variant={'outline'}
                 onClick={() => setOpen(!open)}
                 className="rounded-r-none hover:cursor-pointer lg:h-[36px]"
                 disabled={isLoading}

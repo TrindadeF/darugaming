@@ -1,0 +1,68 @@
+{
+    "welcome": {
+        "title": "Welcome to DatuGaming! We are passionate about providing a unique experience in the world of digital gaming",
+        "description": "Founded with the goal of providing gamers with easy and safe access to the best PC titles, our mission is to deliver high-quality products and exceptional customer service.",
+        "button": "Save informations"
+    },
+    "features": {
+        "title": "Best features",
+        "items": {
+            "catalog": {
+                "title": "Large Catalog",
+                "description": "We offer thousands of games directly from the world's biggest publishers, including new releases, pre-orders, and the most famous and beloved titles and franchises."
+            },
+            "support": {
+                "title": "Real Support",
+                "description": "Our support team consists of real, passionate gamers who do everything they can to assist you with any issues or questions. Your contact is always handled with care."
+            },
+            "available": {
+                "title": "Always Available",
+                "description": "Your content is always accessible. Log into your account, find your games, manage your library, and enjoy everything we offer, handcrafted just for you."
+            },
+            "global": {
+                "title": "Global and Local",
+                "description": "Our goal is to be local, creating and offering unique content and campaigns, localization, and special pricing for each region we operate in."
+            }
+        }
+    },
+    "mission": {
+        "subtitle": "Our mission",
+        "title": "We are a dedicated team of gaming enthusiasts and technology professionals. Our commitment is to ensure that you have access to the latest releases and most popular games with maximum ease and security.",
+        "description": "We are constantly updating our catalog to include the latest news and the most desired titles. Our Vision We believe that every gamer deserves a simple and enjoyable shopping experience"
+    },
+    "work": {
+        "title": "How to work?",
+        "steps": {
+            "cart": {
+                "title": "Add Games to Your Cart",
+                "description": "Select your favorite games, add them to your cart, and complete your purchase with total security."
+            },
+            "access": {
+                "title": "Access Your Games",
+                "description": "Go to your account to find and access your games."
+            },
+            "install": {
+                "title": "Install and Play",
+                "description": "Install your game on your computer and start playing right away!"
+            }
+        }
+    },
+    "enjoy": {
+        "title": "Enjoy convenience, speed, and great prices! Search, discover, and access titles from the world's biggest publishers and top indie releases.",
+        "account": "Don't Have an Account Yet?",
+        "button": "Save informations"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions"
+    },
+    "accordion": {
+        "question1": "What is a cryptocurrency exchange?",
+        "answer1": "A cryptocurrency exchange is a platform that allows the purchase, sale, and exchange of cryptocurrencies. Users can exchange digital currencies for other digital currencies or for fiat currencies such as the dollar or euro.",
+        "question2": "How does the exchange integration work on my platform?",
+        "answer2": "Our exchange integration works through secure API connections that allow real-time trading between platforms.",
+        "question3": "What are the requirements for integration?",
+        "answer3": "You'll need API keys from your exchange account and a server with HTTPS.",
+        "question4": "How long does it take to integrate an exchange?",
+        "answer4": "Integration typically takes between 1-3 business days."
+    }
+}

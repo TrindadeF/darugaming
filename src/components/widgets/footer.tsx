@@ -2,7 +2,7 @@ import { FooterSection } from "@/components/ui/footer-section";
 
 function Footer() {
     return (
-        <div className="block">
+        <div className="block ">
             <FooterSection />
         </div>
     );

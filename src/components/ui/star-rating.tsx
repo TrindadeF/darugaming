@@ -14,8 +14,8 @@ interface StarRatingProps {
   disabled?: boolean;
 }
 
-export function StarRating({ 
-  totalStars = 5, 
+export function StarRating({
+  totalStars = 5,
   defaultValue = 0,
   onRate,
   size = 'md',
@@ -62,24 +62,24 @@ export function StarRating({
           <motion.div
             className={cn(
               "transition-colors duration-300",
-              (hover || rating) >= star 
-                ? "text-yellow-400 dark:text-yellow-300" 
+              (hover || rating) >= star
+                ? "text-yellow-400 dark:text-yellow-300"
                 : "text-muted"
             )}
             initial={{ scale: 1 }}
             animate={{
               scale: (hover || rating) >= star ? 1.2 : 1,
             }}
-            transition={{ 
+            transition={{
               duration: 0.3,
               ease: "easeOut"
             }}
           >
-            <Star 
+            <Star
               className={cn(
                 starSizes[size],
                 "fill-current stroke-[1.5px]"
-              )} 
+              )}
             />
           </motion.div>
         </motion.button>

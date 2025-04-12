@@ -43,6 +43,7 @@ export default function LanguageChanger() {
   return (
     <div className="flex">
       <Button
+        variant={'outline'}
         onClick={() => setOpen(!open)}
         className="rounded-l-none lg:rounded-l lg:rounded-r-none hover:cursor-pointer lg:h-[36px]"
       >

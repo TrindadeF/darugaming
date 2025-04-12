@@ -1,3 +1,5 @@
+'use client'
+
 import { StarRating } from "@/components/ui/star-rating"
 
 

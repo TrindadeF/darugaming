@@ -1,6 +1,6 @@
 
 
-
+import BG from '@/assets/bg-image-product.png'
 import { useCart } from "@/components/providers/cart";
 import { Button } from "@/components/ui/button";
 import { Cart } from "@/components/ui/cart";
@@ -11,9 +11,9 @@ export const mockItem: Product[] = [
         categoryId: "cat1",
         title: "Cyberpunk 2077",
         slug: "cyberpunk-2077",
-        image: "https://example.com/cyberpunk.jpg",
+        image: BG.src,
         video: "https://example.com/cyberpunk-trailer.mp4",
-        poster: "https://example.com/cyberpunk-poster.jpg",
+        poster: BG.src,
         shortDescription: "A futuristic open-world RPG.",
         description: "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour, and body modification.",
         discount: 20,
@@ -22,14 +22,14 @@ export const mockItem: Product[] = [
         rating: 4.5,
         status: 1,
         metaDescription: "Experience the future with Cyberpunk 2077.",
-        backgroundImage: "https://example.com/cyberpunk-bg.jpg",
+        backgroundImage: BG.src,
         attributes: [
             { _id: "attr1", name: "Platform", values: [{ price: 1, value: "PC" }] },
             { _id: "attr2", name: "Genre", values: [{ price: 1, value: "RPG" }] },
         ],
         images: [
-            "https://example.com/cyberpunk1.jpg",
-            "https://example.com/cyberpunk2.jpg",
+            BG.src,
+            BG.src,
         ],
         createdAt: new Date("2023-01-01"),
         updatedAt: new Date("2023-01-02"),

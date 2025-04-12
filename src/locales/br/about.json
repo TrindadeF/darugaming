@@ -1,0 +1,68 @@
+{
+    "welcome": {
+        "title": "Bem-vindo ao DatuGaming! Somos apaixonados por proporcionar uma experiência única no mundo dos jogos digitais",
+        "description": "Fundada com o objetivo de fornecer aos jogadores acesso fácil e seguro aos melhores títulos para PC, nossa missão é entregar produtos de alta qualidade e um atendimento excepcional ao cliente.",
+        "button": "Salvar informações"
+    },
+    "features": {
+        "title": "Melhores recursos",
+        "items": {
+            "catalog": {
+                "title": "Catálogo Amplo",
+                "description": "Oferecemos milhares de jogos diretamente dos maiores publicadores do mundo, incluindo lançamentos, pré-vendas e os títulos e franquias mais famosos e amados."
+            },
+            "support": {
+                "title": "Suporte Real",
+                "description": "Nossa equipe de suporte consiste em gamers reais e apaixonados que fazem de tudo para ajudá-lo com qualquer problema ou dúvida. Seu contato é sempre tratado com cuidado."
+            },
+            "available": {
+                "title": "Sempre Disponível",
+                "description": "Seu conteúdo está sempre acessível. Faça login em sua conta, encontre seus jogos, gerencie sua biblioteca e aproveite tudo que oferecemos, feito especialmente para você."
+            },
+            "global": {
+                "title": "Global e Local",
+                "description": "Nosso objetivo é ser local, criando e oferecendo conteúdo e campanhas únicas, localização e preços especiais para cada região em que atuamos."
+            }
+        }
+    },
+    "mission": {
+        "subtitle": "Nossa missão",
+        "title": "Somos uma equipe dedicada de entusiastas de jogos e profissionais de tecnologia. Nosso compromisso é garantir que você tenha acesso aos últimos lançamentos e jogos mais populares com máxima facilidade e segurança.",
+        "description": "Estamos constantemente atualizando nosso catálogo para incluir as últimas novidades e os títulos mais desejados. Nossa Visão Acreditamos que todo jogador merece uma experiência de compra simples e agradável"
+    },
+    "work": {
+        "title": "Como funciona?",
+        "steps": {
+            "cart": {
+                "title": "Adicione Jogos ao Carrinho",
+                "description": "Selecione seus jogos favoritos, adicione ao carrinho e complete sua compra com total segurança."
+            },
+            "access": {
+                "title": "Acesse Seus Jogos",
+                "description": "Vá até sua conta para encontrar e acessar seus jogos."
+            },
+            "install": {
+                "title": "Instale e Jogue",
+                "description": "Instale seu jogo no computador e comece a jogar imediatamente!"
+            }
+        }
+    },
+    "enjoy": {
+        "title": "Aproveite conveniência, velocidade e ótimos preços! Pesquise, descubra e acesse títulos dos maiores publicadores e melhores lançamentos indie.",
+        "account": "Ainda não tem uma conta?",
+        "button": "Salvar informações"
+    },
+    "faq": {
+        "title": "Perguntas Frequentes"
+    },
+    "accordion": {
+        "question1": "O que é uma exchange de criptomoedas?",
+        "answer1": "Uma exchange de criptomoedas é uma plataforma que permite comprar, vender e trocar criptomoedas por outras moedas digitais ou fiduciárias.",
+        "question2": "Como funciona a integração da exchange na minha plataforma?",
+        "answer2": "Nossa integração funciona através de conexões API seguras que permitem negociação em tempo real entre plataformas.",
+        "question3": "Quais são os requisitos para integração?",
+        "answer3": "Você precisará de chaves API da sua conta na exchange e um servidor com HTTPS.",
+        "question4": "Quanto tempo leva para integrar uma exchange?",
+        "answer4": "A integração normalmente leva de 1 a 3 dias úteis."
+    }
+}

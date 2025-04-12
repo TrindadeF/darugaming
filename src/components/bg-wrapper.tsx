@@ -7,8 +7,7 @@ export function BackgroundWrapper({ children }: { children: React.ReactNode }) {
     const { color } = useColor()
 
     return (
-        <div className="relative w-full flex flex-col items-center justify-center">
-
+        <div className="relative w-full flex flex-col items-center justify-center ">
             <Image
                 src={backgroundStars}
                 alt="Background stars"
@@ -19,7 +18,7 @@ export function BackgroundWrapper({ children }: { children: React.ReactNode }) {
             />
 
             <div
-                className="absolute inset-0 z-10"
+                className="absolute inset-0 z-10 "
                 style={{
                     backgroundColor: `${color}CC`,
                     mixBlendMode: "multiply",
@@ -27,7 +26,7 @@ export function BackgroundWrapper({ children }: { children: React.ReactNode }) {
                 }}
             />
 
-            <div className="relative z-20">
+            <div className="relative z-20 max-w-screen overflow-hidden">
                 {children}
             </div>
         </div>

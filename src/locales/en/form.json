@@ -1,0 +1,36 @@
+{
+    "errors": {
+        "invalidType": "Expected {expected}, received {received}",
+        "invalidLiteral": "Expected value: {expected}",
+        "unrecognizedKeys": "Unrecognized keys in the object",
+        "invalidEnumValue": "Invalid value. Valid options: {options}",
+        "invalidUnion": "Value does not match any allowed format",
+        "invalidDate": "Invalid date",
+        "invalidString": {
+            "email": "Invalid email",
+            "url": "Invalid URL",
+            "uuid": "Invalid UUID",
+            "regex": "Invalid format",
+            "default": "Invalid text"
+        },
+        "tooSmall": {
+            "string": "Minimum {count} characters",
+            "number": "Minimum value: {minimum}",
+            "array": "At least {count} items"
+        },
+        "tooBig": {
+            "string": "Maximum {count} characters",
+            "number": "Maximum value: {maximum}",
+            "array": "At most {count} items"
+        },
+        "default": "Invalid field"
+    },
+    "types": {
+        "string": "string",
+        "number": "number",
+        "boolean": "boolean",
+        "date": "date",
+        "undefined": "empty",
+        "null": "null"
+    }
+}

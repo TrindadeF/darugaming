@@ -44,7 +44,7 @@ export function UserNav() {
     }, [])
 
     if (!session) return (
-        <Button className="w-20" onClick={() => router.push('/signin')}>
+        <Button variant={'outline'} className="w-20 hover:cursor-pointer" onClick={() => router.push('/signin')}>
             {t('user.signin')}
         </Button>
     )

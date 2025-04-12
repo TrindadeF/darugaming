@@ -25,7 +25,7 @@ function Cart() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button className="relative" variant="outline"> <ShoppingCart /> Cart {totalItems > 0 && <Badge className="absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1" >{totalItems}</Badge>}</Button>
+                <Button className="relative hover:cursor-pointer" variant="outline"> <ShoppingCart /> Cart {totalItems > 0 && <Badge className="absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1" >{totalItems}</Badge>}</Button>
             </SheetTrigger>
             <SheetContent className="max-h-screen">
                 <SheetHeader>

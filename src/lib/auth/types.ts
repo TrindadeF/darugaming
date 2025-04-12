@@ -9,7 +9,8 @@ type SessionUser = Pick<User,
     'ev' |
     'sv' |
     'countryCode' |
-    'regStep'
+    'regStep' |
+    'createdAt'
 >;
 export type Session = {
     email: string;

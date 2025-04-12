@@ -1,42 +1,37 @@
 {
-    "pagination": {
-        "rows_per_page": "Linhas por página",
-        "page": "Página",
-        "of": "de",
-        "first_page": "Voltar para a primeira página",
-        "previous": "Anterior",
-        "next": "Próximo",
-        "last_page": "Ir para a última"
-    },
-    "table": {
-        "search": "Pesquisar",
-        "sort": {
-            "asc": "Asc",
-            "desc": "Desc"
+    "details": {
+        "tabs": {
+            "myAccount": "Minha conta",
+            "changePassword": "Alterar senha",
+            "changeEmail": "Alterar e-mail"
         },
-        "hide_column": "Esconder",
-        "no_results": "Sem resultados",
-        "visible_columns_button": "Colunas visíveis",
-        "toggle_columns": "Altere as colunas",
-        "column_labels": {
-            "items": "Jogos",
-            "quantity": "Quantidade",
-            "amount": "Valor",
-            "status": "Status"
+        "myAccount": {
+            "title": "Informações públicas",
+            "subtitle": "Serão exibidas publicamente",
+            "displayName": "Nome de exibição",
+            "displayNamePlaceholder": "Nome de exibição",
+            "receiveDeals": "Quero receber ofertas incríveis por e-mail e economizar dinheiro!",
+            "saveButton": "Salvar informações"
+        },
+        "changePassword": {
+            "title": "Alterar senha",
+            "subtitle": "Garanta que sua conta está segura",
+            "currentPassword": "Senha atual",
+            "newPassword": "Nova senha",
+            "confirmPassword": "Confirme a senha",
+            "updateButton": "Atualizar senha"
+        },
+        "changeEmail": {
+            "title": "Alterar e-mail",
+            "subtitle": "Atualize o e-mail da sua conta",
+            "newEmail": "Novo e-mail",
+            "confirmEmail": "Confirme o e-mail",
+            "currentPassword": "Senha atual",
+            "updateButton": "Atualizar e-mail"
+        },
+        "userSection": {
+            "createdSince": "Criado desde",
+            "googleConnected": "Conectado"
         }
-    },
-    "layout": {
-        "metadata": {
-            "title": "Conta",
-            "description": "Gerencie suas configurações de conta"
-        },
-        "sidebar": {
-            "profile": "Perfil",
-            "orders": "Pedidos",
-            "billings": "Pagamentos",
-            "apparence": "Aparência"
-        },
-        "heading": "Configurações",
-        "description": "Gerencie sua conta"
     }
 }

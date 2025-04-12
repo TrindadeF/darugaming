@@ -1,42 +1,37 @@
 {
-    "pagination": {
-        "rows_per_page": "Rows per page",
-        "page": "Page",
-        "of": "of",
-        "first_page": "Go to first page",
-        "previous": "Previous",
-        "next": "Next",
-        "last_page": "Go to last page"
-    },
-    "table": {
-        "search": "Search",
-        "sort": {
-            "asc": "Asc",
-            "desc": "Desc"
+    "details": {
+        "tabs": {
+            "myAccount": "My account",
+            "changePassword": "Change Password",
+            "changeEmail": "Change e-mail"
         },
-        "hide_column": "Hide",
-        "no_results": "No Results",
-        "visible_columns_button": "Visible columns",
-        "toggle_columns": "Toggle columns",
-        "column_labels": {
-            "items": "Games",
-            "quantity": "Quantity",
-            "amount": "Amount",
-            "status": "Status"
+        "myAccount": {
+            "title": "Public information",
+            "subtitle": "Will be displayed publicly",
+            "displayName": "Display Name",
+            "displayNamePlaceholder": "Display name",
+            "receiveDeals": "I want to receive awesome deals by email and save some money!",
+            "saveButton": "Save information"
+        },
+        "changePassword": {
+            "title": "Change Password",
+            "subtitle": "Ensure your account is secure",
+            "currentPassword": "Current Password",
+            "newPassword": "New Password",
+            "confirmPassword": "Confirm Password",
+            "updateButton": "Update Password"
+        },
+        "changeEmail": {
+            "title": "Change Email",
+            "subtitle": "Update your account email",
+            "newEmail": "New Email",
+            "confirmEmail": "Confirm Email",
+            "currentPassword": "Current Password",
+            "updateButton": "Update Email"
+        },
+        "userSection": {
+            "createdSince": "Created since",
+            "googleConnected": "Connected"
         }
-    },
-    "layout": {
-        "metadata": {
-            "title": "Account",
-            "description": "Manage your account settings"
-        },
-        "sidebar": {
-            "profile": "Profile",
-            "orders": "Orders",
-            "billings": "Billings",
-            "apparence": "Apparence"
-        },
-        "heading": "Settings",
-        "description": "Manage your account"
     }
 }
