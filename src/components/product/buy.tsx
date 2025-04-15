@@ -96,7 +96,6 @@ function BuyProduct({ product }: BuyProductProps) {
                         PC
                     </div>
                     <div className="relative w-full z-10 ">
-                        {/* Dropdown Select */}
                         <button
                             className="flex justify-between cursor-pointer hover:bg-white/10 transition w-full font-medium py-5 px-6 rounded inline-flex items-center"
                             onClick={toggleDropdown}
@@ -114,18 +113,46 @@ function BuyProduct({ product }: BuyProductProps) {
                     </div>
                 </div>
             </div>
-            {/* verificar se o discount é % ou valor */}
             <div className="flex md:mb-6 mb-8">
-                {product.discount && product.price && <p className="flex items-center md:text-xl text-lg text-gray-200 mr-4 line-through"> <Image src={Tag} alt="Tag" className="mr-2" width={20} height={20} /><NumberFlow
-                    format={{
-                        style: "currency",
-                        currency: currency,
-                        trailingZeroDisplay: "stripIfInteger",
-                    }}
-                    value={product.price}
-                    className="text-2xl font-bold"
-                /></p>}
-                <h2 className="md:text-4xl text-2xl font-semibold flex items-center">{product.discount}<span className="text-sm font-semibold bg-[#0BC4E5] py-1 px-2 rounded-full ml-4">-33%</span></h2>
+                {product.price && (
+                    <>
+                        {product.discount ? (
+                            <>
+                                <p className="flex items-center md:text-xl text-lg text-gray-200 mr-4 line-through">
+                                    <Image src={Tag} alt="Tag" className="mr-2" width={20} height={20} />
+
+                                    {product.price.toFixed(2)}
+
+                                </p>
+                                <h2 className="md:text-4xl text-2xl font-semibold flex items-center">
+                                    <NumberFlow
+                                        format={{
+                                            style: "currency",
+                                            currency: currency,
+                                            trailingZeroDisplay: "stripIfInteger",
+                                        }}
+                                        value={product.price * (1 - product.discount / 100)}
+                                        className="mr-4"
+                                    />
+                                    <span className="text-sm font-semibold bg-[#0BC4E5] py-1 px-2 rounded-full">
+                                        -{product.discount}%
+                                    </span>
+                                </h2>
+                            </>
+                        ) : (
+                            <h2 className="md:text-4xl text-2xl font-semibold flex items-center">
+                                <NumberFlow
+                                    format={{
+                                        style: "currency",
+                                        currency: currency,
+                                        trailingZeroDisplay: "stripIfInteger",
+                                    }}
+                                    value={product.price}
+                                />
+                            </h2>
+                        )}
+                    </>
+                )}
             </div>
             <div className="flex flex-col gap-3">
                 <div className="box-shape">
@@ -157,7 +184,7 @@ function BuyProduct({ product }: BuyProductProps) {
                 <Image src={LogoPayments07} alt="ethereum" />
                 <Image src={LogoPayments08} alt="mercado pago" />
             </div>
-        </div>
+        </div >
     )
 }
 

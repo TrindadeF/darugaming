@@ -56,6 +56,18 @@ interface ProductAttribute {
         price: number;
     }[];
 }
+interface SystemRequirement {
+    os: string;
+    storage: string;
+    processor: string;
+    memory: string;
+    graphicsCard: string;
+}
+
+interface SystemRequirements {
+    minimum: SystemRequirement;
+    recommended: SystemRequirement;
+}
 
 interface Product extends Timestamps {
     _id: string;
@@ -86,6 +98,8 @@ interface Product extends Timestamps {
     accountEmail?: string;
     attributes: ProductAttribute[];
     images: string[];
+    systemRequirements?: SystemRequirements;
+    licenseKey?: string;
 }
 
 // Order-related

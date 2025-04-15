@@ -1,0 +1,49 @@
+{
+    "recommendationTitle": "Quem viu este produto também comprou",
+    "productNotFound": {
+        "title": "Ops, algo deu errado",
+        "description": "O produto selecionado não existe"
+    },
+    "about": {
+        "title": "Sobre",
+        "noDescription": "Sem descrição disponível.",
+        "seeMore": "Ver mais",
+        "seeLess": "Ver menos"
+    },
+    "requirements": {
+        "title": "Requisitos do Sistema",
+        "minimum": "Mínimos",
+        "recommended": "Recomendados",
+        "notAvailable": "N/D",
+        "os": "Sistema Operacional",
+        "storage": "Armazenamento",
+        "processor": "Processador",
+        "memory": "Memória",
+        "graphicsCard": "Placa de Vídeo"
+    },
+    "buyProduct": {
+        "preOrder": "Pré-venda",
+        "deliveryInfo": {
+            "instantDelivery": "Entrega<br />Instantânea",
+            "supportHours": "Suporte das<br />14h às 23h",
+            "globalRegion": "Região<br />Global"
+        },
+        "tooltips": {
+            "instantDelivery": "A conta com o jogo será entregue instantaneamente.",
+            "supportHours": "Horário de Lisboa.",
+            "globalRegion": "O jogo funciona em todo o mundo."
+        },
+        "selectRentalPeriod": "Selecione as opções de período de aluguel:",
+        "dropdown": {
+            "standard": "Padrão",
+            "championsEdition": "Edição Campeões"
+        },
+        "buttons": {
+            "buyNow": "Comprar Agora",
+            "buyAsGuest": "Comprar como convidado",
+            "addToWishlist": "Adicionar à lista de desejos",
+            "askWhatsApp": "Pergunte via WhatsApp"
+        },
+        "secureCheckout": "Checkout seguro garantido."
+    }
+}

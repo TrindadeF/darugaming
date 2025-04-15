@@ -97,7 +97,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
-const i18nNamespaces = ['home', 'account', 'nav', 'footer', 'auth', 'about', 'form'];
+const i18nNamespaces = ['home', 'account', 'nav', 'footer', 'auth', 'about', 'form', 'terms', 'product'];
 
 export default async function RootLayout({
   children,

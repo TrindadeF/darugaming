@@ -1,0 +1,134 @@
+{
+    "privacyPolicy": {
+        "title": "Política de Privacidade",
+        "lastUpdated": "Última atualização: 12 de Abril de 2025",
+        "introduction": {
+            "p1": "Esta Política de Privacidade descreve Nossas políticas e procedimentos sobre a coleta, uso e divulgação de Suas informações quando Você usa o Serviço e informa sobre Seus direitos de privacidade e como a lei protege Você.",
+            "p2": "Usamos Seus Dados Pessoais para fornecer e melhorar o Serviço. Ao usar o Serviço, Você concorda com a coleta e uso de informações de acordo com esta Política de Privacidade. Esta Política de Privacidade foi criada com a ajuda do <0>Gerador de Política de Privacidade</0>."
+        },
+        "interpretation": {
+            "title": "Interpretação e Definições",
+            "interpretationSection": "Interpretação",
+            "definitionsSection": "Definições",
+            "definitionsText": "As palavras cuja letra inicial é maiúscula têm significados definidos nas seguintes condições. As seguintes definições terão o mesmo significado independentemente de aparecerem no singular ou no plural.",
+            "purposeText": "Para os fins desta Política de Privacidade:",
+            "list": {
+                "account": {
+                    "title": "Conta",
+                    "description": "significa uma conta única criada para Você acessar nosso Serviço ou partes dele."
+                },
+                "affiliate": {
+                    "title": "Afiliada",
+                    "description": "significa uma entidade que controla, é controlada ou está sob controle comum com uma parte, onde \"controle\" significa propriedade de 50% ou mais das ações, participação acionária ou outros títulos com direito a voto para eleição de diretores ou outra autoridade gestora."
+                },
+                "company": {
+                    "title": "Empresa",
+                    "description": "(referida como \"a Empresa\", \"Nós\", \"Nossos\" ou \"Nossa\" neste Acordo) refere-se a teste, teste."
+                },
+                "cookies": {
+                    "title": "Cookies",
+                    "description": "são pequenos arquivos colocados em Seu computador, dispositivo móvel ou qualquer outro dispositivo por um site, contendo detalhes do Seu histórico de navegação naquele site entre seus muitos usos."
+                },
+                "country": {
+                    "title": "País",
+                    "description": "refere-se a: Brasil"
+                },
+                "device": {
+                    "title": "Dispositivo",
+                    "description": "significa qualquer dispositivo que possa acessar o Serviço como um computador, celular ou tablet digital."
+                },
+                "personalData": {
+                    "title": "Dados Pessoais",
+                    "description": "são quaisquer informações relacionadas a um indivíduo identificado ou identificável."
+                },
+                "service": {
+                    "title": "Serviço",
+                    "description": "refere-se ao Website."
+                },
+                "serviceProvider": {
+                    "title": "Provedor de Serviço",
+                    "description": "significa qualquer pessoa física ou jurídica que processa os dados em nome da Empresa. Refere-se a empresas terceirizadas ou indivíduos contratados pela Empresa para facilitar o Serviço, fornecer o Serviço em nome da Empresa, executar serviços relacionados ao Serviço ou auxiliar a Empresa a analisar como o Serviço é usado."
+                },
+                "usageData": {
+                    "title": "Dados de Uso",
+                    "description": "refere-se a dados coletados automaticamente, gerados pelo uso do Serviço ou pela própria infraestrutura do Serviço (por exemplo, a duração da visita a uma página)."
+                },
+                "website": {
+                    "title": "Website",
+                    "description": "refere-se a teste, acessível em <0>teste</0>"
+                },
+                "you": {
+                    "title": "Você",
+                    "description": "significa o indivíduo acessando ou usando o Serviço, ou a empresa, ou outra entidade legal em nome da qual tal indivíduo está acessando ou usando o Serviço, conforme aplicável."
+                }
+            }
+        },
+        "collectingData": {
+            "title": "Coleta e Uso de Seus Dados Pessoais",
+            "typesData": {
+                "title": "Tipos de Dados Coletados",
+                "personalData": {
+                    "title": "Dados Pessoais",
+                    "description": "Ao usar Nosso Serviço, podemos pedir que Você nos forneça certas informações pessoalmente identificáveis que podem ser usadas para contatá-lo ou identificá-lo. Informações pessoalmente identificáveis podem incluir, mas não se limitam a:",
+                    "list": [
+                        "Endereço de e-mail",
+                        "Nome e sobrenome",
+                        "Número de telefone",
+                        "Endereço, Estado, Província, CEP, Cidade",
+                        "Dados de Uso"
+                    ]
+                },
+                "usageData": {
+                    "title": "Dados de Uso",
+                    "description1": "Dados de Uso são coletados automaticamente quando o Serviço é usado.",
+                    "description2": "Dados de Uso podem incluir informações como endereço de Protocolo de Internet do Seu Dispositivo (por exemplo, endereço IP), tipo de navegador, versão do navegador, as páginas do nosso Serviço que Você visita, a data e hora da Sua visita, o tempo gasto nessas páginas, identificadores exclusivos de dispositivos e outros dados de diagnóstico.",
+                    "description3": "Quando Você acessa o Serviço por ou através de um dispositivo móvel, podemos coletar certas informações automaticamente, incluindo, mas não limitado a, o tipo de dispositivo móvel que Você usa, o ID único do Seu dispositivo móvel, o endereço IP do Seu dispositivo móvel, o sistema operacional móvel, o tipo de navegador de Internet móvel que Você usa, identificadores únicos de dispositivos e outros dados de diagnóstico.",
+                    "description4": "Também podemos coletar informações que Seu navegador envia sempre que Você visita nosso Serviço ou quando Você acessa o Serviço por ou através de um dispositivo móvel."
+                },
+                "tracking": {
+                    "title": "Tecnologias de Rastreamento e Cookies",
+                    "description1": "Usamos Cookies e tecnologias de rastreamento semelhantes para rastrear a atividade em nosso Serviço e armazenar certas informações. As tecnologias de rastreamento usadas são beacons, tags e scripts para coletar e rastrear informações e para melhorar e analisar nosso Serviço. As tecnologias que usamos podem incluir:",
+                    "list": {
+                        "cookies": {
+                            "title": "Cookies ou Cookies de Navegador.",
+                            "description": "Um cookie é um pequeno arquivo colocado em Seu Dispositivo. Você pode instruir Seu navegador a recusar todos os Cookies ou a indicar quando um Cookie está sendo enviado. No entanto, se Você não aceitar Cookies, talvez não consiga usar algumas partes do nosso Serviço. A menos que Você tenha ajustado as configurações do Seu navegador para recusar Cookies, nosso Serviço pode usar Cookies."
+                        },
+                        "webBeacons": {
+                            "title": "Web Beacons.",
+                            "description": "Certas seções do nosso Serviço e nossos e-mails podem conter pequenos arquivos eletrônicos conhecidos como web beacons (também referidos como clear gifs, pixel tags e single-pixel gifs) que permitem à Empresa, por exemplo, contar usuários que visitaram essas páginas ou abriram um e-mail e para outras estatísticas relacionadas ao site (por exemplo, registrar a popularidade de uma determinada seção e verificar a integridade do sistema e do servidor)."
+                        }
+                    },
+                    "cookieTypes": {
+                        "description1": "Cookies podem ser \"Persistentes\" ou \"de Sessão\". Cookies Persistentes permanecem em Seu computador pessoal ou dispositivo móvel quando Você está offline, enquanto Cookies de Sessão são excluídos assim que Você fecha Seu navegador. Saiba mais sobre cookies no artigo <0>Privacy Policies website</0>.",
+                        "description2": "Usamos Cookies de Sessão e Persistentes para os fins definidos abaixo:",
+                        "types": {
+                            "necessary": {
+                                "title": "Cookies Necessários / Essenciais",
+                                "type": "Tipo: Cookies de Sessão",
+                                "administered": "Administrado por: Nós",
+                                "purpose": "Propósito: Esses Cookies são essenciais para fornecer a Você os serviços disponíveis através do Website e permitir que Você use alguns de seus recursos. Eles ajudam a autenticar usuários e evitar o uso fraudulento de contas de usuário. Sem esses Cookies, os serviços que Você solicitou não podem ser fornecidos, e nós usamos esses Cookies apenas para fornecer esses serviços a Você."
+                            },
+                            "acceptance": {
+                                "title": "Cookies de Política / Aceitação de Cookies",
+                                "type": "Tipo: Cookies Persistentes",
+                                "administered": "Administrado por: Nós",
+                                "purpose": "Propósito: Esses Cookies identificam se os usuários aceitaram o uso de cookies no Website."
+                            },
+                            "functionality": {
+                                "title": "Cookies de Funcionalidade",
+                                "type": "Tipo: Cookies Persistentes",
+                                "administered": "Administrado por: Nós",
+                                "purpose": "Propósito: Esses Cookies nos permitem lembrar as escolhas que Você faz ao usar o Website, como lembrar seus dados de login ou preferência de idioma. O objetivo desses Cookies é fornecer a Você uma experiência mais personalizada e evitar que Você tenha que reinserir suas preferências toda vez que usar o Website."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "contact": {
+            "title": "Contate-nos",
+            "description": "Se você tiver alguma dúvida sobre esta Política de Privacidade, Você pode nos contatar:",
+            "phone": "Por telefone: 123456789"
+        }
+    }
+}

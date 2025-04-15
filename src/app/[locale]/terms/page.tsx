@@ -1,140 +1,114 @@
-export default function Page() {
+'use client';
+
+import { useTranslation } from "react-i18next";
+
+
+
+export default function PrivacyPolicyPage() {
+    const { t } = useTranslation('terms');
+
     return (
         <div className="md:w-[1100px] w-full container mx-auto mt-20 relative text-white py-6">
             <div className="md:p-10 p-5 backdrop-blur-md clip-path-element gap-1" style={{ background: "rgba(49, 55, 66, 0.80)" }}>
-                <h1 className="text-4xl font-bold mb-3 text-indigo-400">Privacy Policy</h1>
-                <p className="text-gray-300 text-sm mb-8">Last updated: April 12, 2025</p>
+                <h1 className="text-4xl font-bold mb-3 text-indigo-400">{t('privacyPolicy.title')}</h1>
+                <p className="text-gray-300 text-sm mb-8">{t('privacyPolicy.lastUpdated')}</p>
 
-                <p className="mb-6 leading-relaxed">This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
-                <p className="mb-6 leading-relaxed">We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.privacypolicies.com/privacy-policy-generator/" target="_blank" className=" hover:underline">Privacy Policy Generator</a>.</p>
+                <p className="mb-6 leading-relaxed">{t('privacyPolicy.introduction.p1')}</p>
+                <p className="mb-6 leading-relaxed">
+                    {t('privacyPolicy.introduction.p2', {
+                        components: [<a href="https://www.privacypolicies.com/privacy-policy-generator/" target="_blank" className="hover:underline" key="0" />]
+                    })}
+                </p>
 
-                <h2 className="text-2xl font-semibold mt-10 mb-5  border-b border-gray-600 pb-3">Interpretation and Definitions</h2>
+                <h2 className="text-2xl font-semibold mt-10 mb-5 border-b border-gray-600 pb-3">
+                    {t('privacyPolicy.interpretation.title')}
+                </h2>
 
-                <h3 className="text-xl font-medium mb-4 text-gray-200">Interpretation</h3>
-                <p className="mb-5">The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+                <h3 className="text-xl font-medium mb-4 text-gray-200">{t('privacyPolicy.interpretation.interpretationSection')}</h3>
+                <p className="mb-5">{t('privacyPolicy.interpretation.definitionsText')}</p>
 
-                <h3 className="text-xl font-medium mb-4 text-gray-200">Definitions</h3>
-                <p className="mb-5">For the purposes of this Privacy Policy:</p>
+                <h3 className="text-xl font-medium mb-4 text-gray-200">{t('privacyPolicy.interpretation.definitionsSection')}</h3>
+                <p className="mb-5">{t('privacyPolicy.interpretation.purposeText')}</p>
 
                 <ul className="space-y-5 mb-10">
-                    <li>
-                        <strong className="block  mb-1">Account</strong>
-                        <p>means a unique account created for You to access our Service or parts of our Service.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Affiliate</strong>
-                        <p>means an entity that controls, is controlled by or is under common control with a party, where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Company</strong>
-                        <p>(referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to test, test.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Cookies</strong>
-                        <p>are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Country</strong>
-                        <p>refers to: Brazil</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Device</strong>
-                        <p>means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Personal Data</strong>
-                        <p>is any information that relates to an identified or identifiable individual.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Service</strong>
-                        <p>refers to the Website.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Service Provider</strong>
-                        <p>means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Usage Data</strong>
-                        <p>refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">Website</strong>
-                        <p>refers to test, accessible from <a href="test" rel="external nofollow noopener" target="_blank" className=" hover:underline">test</a></p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-1">You</strong>
-                        <p>means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
-                    </li>
+                    {Object.entries(t('privacyPolicy.interpretation.list', { returnObjects: true })).map(([key, item]: [string, any]) => (
+                        <li key={key}>
+                            <strong className="block mb-1">{item.title}</strong>
+                            <p>
+                                {key === 'website' ?
+                                    t(`privacyPolicy.interpretation.list.${key}.description`, {
+                                        components: [<a href="test" rel="external nofollow noopener" target="_blank" className="hover:underline" key="0" />]
+                                    }) :
+                                    item.description
+                                }
+                            </p>
+                        </li>
+                    ))}
                 </ul>
 
-                <h2 className="text-2xl font-semibold mt-10 mb-5  border-b border-gray-600 pb-3">Collecting and Using Your Personal Data</h2>
+                <h2 className="text-2xl font-semibold mt-10 mb-5 border-b border-gray-600 pb-3">
+                    {t('privacyPolicy.collectingData.title')}
+                </h2>
 
-                <h3 className="text-xl font-medium mb-4 text-gray-200">Types of Data Collected</h3>
+                <h3 className="text-xl font-medium mb-4 text-gray-200">{t('privacyPolicy.collectingData.typesData.title')}</h3>
 
-                <h4 className="text-lg font-medium mb-3 text-gray-200">Personal Data</h4>
-                <p className="mb-5">While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</p>
+                <h4 className="text-lg font-medium mb-3 text-gray-200">{t('privacyPolicy.collectingData.typesData.personalData.title')}</h4>
+                <p className="mb-5">{t('privacyPolicy.collectingData.typesData.personalData.description')}</p>
 
                 <ul className="space-y-3 mb-6">
-                    <li className="ml-4">Email address</li>
-                    <li className="ml-4">First name and last name</li>
-                    <li className="ml-4">Phone number</li>
-                    <li className="ml-4">Address, State, Province, ZIP/Postal code, City</li>
-                    <li className="ml-4">Usage Data</li>
+                    {Object.values(t('privacyPolicy.collectingData.typesData.personalData.list', { returnObjects: true }) || {}).map((item: string, index: number) => (
+                        <li className="ml-4" key={index}>{item}</li>
+                    ))}
                 </ul>
 
-                <h4 className="text-lg font-medium mb-3 text-gray-200">Usage Data</h4>
-                <p className="mb-5">Usage Data is collected automatically when using the Service.</p>
-                <p className="mb-5">Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
-                <p className="mb-5">When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
-                <p className="mb-8">We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
+                <h4 className="text-lg font-medium mb-3 text-gray-200">{t('privacyPolicy.collectingData.typesData.usageData.title')}</h4>
+                <p className="mb-5">{t('privacyPolicy.collectingData.typesData.usageData.description1')}</p>
+                <p className="mb-5">{t('privacyPolicy.collectingData.typesData.usageData.description2')}</p>
+                <p className="mb-5">{t('privacyPolicy.collectingData.typesData.usageData.description3')}</p>
+                <p className="mb-8">{t('privacyPolicy.collectingData.typesData.usageData.description4')}</p>
 
-                <h4 className="text-lg font-medium mb-3 text-gray-200">Tracking Technologies and Cookies</h4>
-                <p className="mb-5">We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:</p>
+                <h4 className="text-lg font-medium mb-3 text-gray-200">{t('privacyPolicy.collectingData.typesData.tracking.title')}</h4>
+                <p className="mb-5">{t('privacyPolicy.collectingData.typesData.tracking.description1')}</p>
 
                 <ul className="space-y-4 mb-6">
                     <li>
-                        <strong className="">Cookies or Browser Cookies.</strong> A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.
+                        <strong>{t('privacyPolicy.collectingData.typesData.tracking.list.cookies.title')}</strong>
+                        <p>{t('privacyPolicy.collectingData.typesData.tracking.list.cookies.description')}</p>
                     </li>
                     <li>
-                        <strong className="">Web Beacons.</strong> Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity).
+                        <strong>{t('privacyPolicy.collectingData.typesData.tracking.list.webBeacons.title')}</strong>
+                        <p>{t('privacyPolicy.collectingData.typesData.tracking.list.webBeacons.description')}</p>
                     </li>
                 </ul>
 
-                <p className="mb-8">Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. Learn more about cookies on the <a href="https://www.privacypolicies.com/blog/privacy-policy-template/#Use_Of_Cookies_Log_Files_And_Tracking" target="_blank" className=" hover:underline">Privacy Policies website</a> article.</p>
-
-                <p className="mb-5">We use both Session and Persistent Cookies for the purposes set out below:</p>
+                <p className="mb-8">
+                    {t('privacyPolicy.collectingData.typesData.tracking.cookieTypes.description1', {
+                        components: [<a href="https://www.privacypolicies.com/blog/privacy-policy-template/#Use_Of_Cookies_Log_Files_And_Tracking" target="_blank" className="hover:underline" key="0" />]
+                    })}
+                </p>
+                <p className="mb-5">{t('privacyPolicy.collectingData.typesData.tracking.cookieTypes.description2')}</p>
 
                 <ul className="space-y-6 mb-10">
-                    <li>
-                        <strong className="block  mb-2">Necessary / Essential Cookies</strong>
-                        <p>Type: Session Cookies</p>
-                        <p>Administered by: Us</p>
-                        <p>Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-2">Cookies Policy / Notice Acceptance Cookies</strong>
-                        <p>Type: Persistent Cookies</p>
-                        <p>Administered by: Us</p>
-                        <p>Purpose: These Cookies identify if users have accepted the use of cookies on the Website.</p>
-                    </li>
-                    <li>
-                        <strong className="block  mb-2">Functionality Cookies</strong>
-                        <p>Type: Persistent Cookies</p>
-                        <p>Administered by: Us</p>
-                        <p>Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.</p>
-                    </li>
+                    {Object.entries(t('privacyPolicy.collectingData.typesData.tracking.cookieTypes.types', { returnObjects: true })).map(([key, item]: [string, any]) => (
+                        <li key={key}>
+                            <strong className="block mb-2">{item.title}</strong>
+                            <p>{item.type}</p>
+                            <p>{item.administered}</p>
+                            <p>{item.purpose}</p>
+                        </li>
+                    ))}
                 </ul>
 
-                {/* Continuação das demais seções com o mesmo padrão de estilização */}
-
-                <h2 className="text-2xl font-semibold mt-10 mb-5 border-b border-gray-600 pb-3">Contact Us</h2>
-                <p className="mb-4">If you have any questions about this Privacy Policy, You can contact us:</p>
+                <h2 className="text-2xl font-semibold mt-10 mb-5 border-b border-gray-600 pb-3">
+                    {t('privacyPolicy.contact.title')}
+                </h2>
+                <p className="mb-4">{t('privacyPolicy.contact.description')}</p>
                 <ul className="space-y-2">
                     <li className="flex items-center">
-                        By phone number: 123456789
+                        {t('privacyPolicy.contact.phone')}
                     </li>
                 </ul>
             </div>
         </div>
-    )
+    );
 }

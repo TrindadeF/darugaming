@@ -27,6 +27,22 @@ export const mockItem: Product[] = [
             { _id: "attr1", name: "Platform", values: [{ price: 1, value: "PC" }] },
             { _id: "attr2", name: "Genre", values: [{ price: 1, value: "RPG" }] },
         ],
+        systemRequirements: {
+            minimum: {
+                os: "Windows 10/11 (version 1909+)",
+                storage: "140 GB",
+                processor: "Intel Core i3-8100 / AMD Ryzen 3 3100",
+                memory: "16 GB",
+                graphicsCard: "NVIDIA GeForce GTX 1650 / AMD Radeon RX 5500 XT"
+            },
+            recommended: {
+                os: "Windows 10/11 (version 1909+)",
+                storage: "140 GB",
+                processor: "Intel Core i5 / AMD Ryzen 5",
+                memory: "16 GB",
+                graphicsCard: "NVIDIA GeForce GTX 1660 / AMD Radeon RX 580"
+            }
+        },
         images: [
             BG.src,
             BG.src,

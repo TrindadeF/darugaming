@@ -14,6 +14,7 @@ import { ProductReview } from "@/components/product/review";
 import i18nConfig from "@/i18nConfig";
 import initTranslations from "@/app/i18n";
 import { Metadata } from "next";
+import { AboutProduct } from "@/components/product/about";
 
 const i18nNamespaces = ['product'];
 export async function generateMetadata(props: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
@@ -43,18 +44,17 @@ export default async function Page(props: {
   if (!i18nConfig.locales.includes(locale)) {
     notFound();
   }
-
+  const { t } = await initTranslations(locale, i18nNamespaces);
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/api/product/${slug}`)
   if (!res.ok) {
-    toast("Ops,algo deu errado", {
-      description: ' A mercadoria escolhida não existe'
-    })
+    toast(t('productNotFound.title'), {
+      description: t('productNotFound.description')
+    });
+
     redirect('/products')
   }
-  const { t } = await initTranslations(locale, i18nNamespaces);
-  console.log(t)
+
   const product: Product = await res.json()
-  console.log(product)
   return (
     <>
       <div className="w-full" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 80%)" }}>
@@ -70,7 +70,9 @@ export default async function Page(props: {
               <BuyProduct product={product} />
             </div>
             <div className="md:p-8 p-5 backdrop-blur-md clip-path-element" style={{ background: "rgba(49, 55, 66, 0.80)" }}>
-              <h2 className="md:text-2xl text-xl font-semibold mb-6">Who viewed this product also bought</h2>
+              <AboutProduct product={product} />
+              <h2 className="md:text-2xl text-xl font-semibold mb-6 py-2">{t('recommendationTitle')}</h2>
+
               <div className="flex flex-col gap-6 py-4">
                 <ProductRecommendation product={product} />
               </div>
