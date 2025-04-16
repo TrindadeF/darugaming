@@ -24,8 +24,7 @@ import { FontProvider } from "@/components/providers/font";
 import { cookies } from "next/headers";
 import { MainNav } from "@/components/widgets/main-nav";
 import { ZodProvider } from "@/components/providers/zodi18n";
-import { BackgroundWrapper } from "@/components/bg-wrapper";
-import { ColorProvider } from "@/components/providers/color";
+
 
 
 
@@ -137,17 +136,13 @@ export default async function RootLayout({
                 >
                   <ZodProvider>
                     <CurrencyProvider>
-                      <ColorProvider>
-                        <BackgroundWrapper>
-                          <CartProvider>
-                            <NavMenu />
-                            <MainNav />
-                            {children}
-                            <Footer />
-                            <Toaster />
-                          </CartProvider>
-                        </BackgroundWrapper>
-                      </ColorProvider>
+                      <CartProvider>
+                        <NavMenu />
+                        <MainNav />
+                        {children}
+                        <Footer />
+                        <Toaster />
+                      </CartProvider>
                     </CurrencyProvider>
                   </ZodProvider>
                 </TranslationsProvider>

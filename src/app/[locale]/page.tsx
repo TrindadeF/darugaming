@@ -11,12 +11,16 @@ export default function Home() {
 
   const { t } = useTranslation('home')
   return (
-    <div className="flex flex-col items-center justify-center">
-      <HeroCarousel />
-      <InfiniteMovingPartners />
-      <div className="m-4 max-w-7xl overflow-hidden " >
-        <ProductGallery items={mockItem} title={t('title')} description={t('description')} />
-      </div>
-    </div>
+    <ColorProvider>
+      <BackgroundWrapper>
+        <div className="flex flex-col items-center justify-center">
+          <HeroCarousel />
+          <InfiniteMovingPartners />
+          <div className="m-4 max-w-7xl overflow-hidden " >
+            <ProductGallery items={mockItem} title={t('title')} description={t('description')} />
+          </div>
+        </div>
+      </BackgroundWrapper>
+    </ColorProvider>
   );
 }

@@ -15,7 +15,8 @@ import { Cart } from "../ui/cart";
 
 function NavMenu() {
     const pathname = usePathname();
-    if (pathname.includes('signin') || pathname.includes('signup')) return null;
+    if (pathname.includes("signin") || pathname.includes("signup") || pathname.includes('admin')) return null;
+
 
     return (
         <NavigationMenu className="max-w-full bg-background py-2">

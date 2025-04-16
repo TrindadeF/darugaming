@@ -7,8 +7,8 @@ import { SignIn } from "@/components/auth/signin";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import Image from 'next/image';
-import ImageBG from '@/../public/assets/authbg.png'
-import Logo from '@/../public/assets/logo.png'
+import ImageBG from '@/assets/authbg.png'
+import Logo from '@/assets/logo.png'
 
 
 import { useTranslation } from "react-i18next";

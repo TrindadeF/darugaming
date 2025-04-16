@@ -25,8 +25,10 @@ import { format } from "date-fns"
 import { useForm } from "react-hook-form"
 import { newsLetterSchema } from "@/schemas/news-letter"
 import { useTranslation } from "react-i18next"
+import { usePathname } from "next/navigation"
 
 function FooterSection() {
+  const pathname = usePathname();
   const { t } = useTranslation('footer')
   const form = useForm<z.infer<typeof newsLetterSchema>>({
     resolver: zodResolver(newsLetterSchema),
@@ -39,6 +41,7 @@ function FooterSection() {
     console.log(values)
   }
 
+  if (pathname.includes("signin") || pathname.includes("signup") || pathname.includes('admin')) return null;
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300 w-screen">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">

@@ -11,7 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 function MainNav() {
     const pathname = usePathname();
-    if (pathname.includes("signin") || pathname.includes("signup")) return null;
+    if (pathname.includes("signin") || pathname.includes("signup") || pathname.includes('admin')) return null;
 
     return (
         <div className="relative h-16 bg-background border-b border-[#0bc4e5]">
