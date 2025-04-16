@@ -185,7 +185,6 @@ export function ProductTable(props: { data: Product[] }) {
                 defaultValues: productDefaultValues
             }}
             onNewItem={(values) => console.log("Novo produto:", values)}
-            exportTo={true}
         />
     );
 }

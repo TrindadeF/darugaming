@@ -27,22 +27,22 @@ const mainItems = [
     },
     {
         title: "Customers",
-        url: "/admin/customers",
+        url: "/admin/dashboard/customers",
         icon: Users,
     },
     {
         title: "Products",
-        url: "/admin/products",
+        url: "/admin/dashboard/products",
         icon: Package,
     },
     {
-        title: "Sales",
-        url: "/admin/sales",
+        title: "Orders",
+        url: "/admin/dashboard/orders",
         icon: DollarSign,
     },
     {
         title: "Contact",
-        url: "/admin/contact",
+        url: "/admin/dashboard/contact",
         icon: Mail,
     },
 ]

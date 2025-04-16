@@ -165,12 +165,15 @@ interface SupportTicket extends Timestamps {
     status: boolean;
     priority: boolean;
     lastReply?: Date;
+    messages?: SupportMessage[];
+    read?: boolean;
 }
 
 interface SupportMessage extends Timestamps {
     _id: string;
     supportTicketId: number;
     adminId: number;
+
     message?: string;
 }
 
