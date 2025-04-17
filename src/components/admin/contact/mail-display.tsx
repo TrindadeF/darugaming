@@ -21,7 +21,6 @@ import {
 } from "lucide-react"
 
 
-
 interface MailDisplayProps {
     mail: SupportTicket | null
 }
