@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import AccordionItem from './AccordionItem';
 import { useTranslation } from 'react-i18next';

@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef, useState, useEffect } from 'react';
 
 import { Swiper as SwiperClass } from 'swiper';
@@ -35,8 +36,8 @@ export default function ProductGallery() {
             updateScrollbarPosition(swiper);
         }
     };
-    
-   
+
+
     // Função para atualizar a posição do scrollbar
     const updateScrollbarPosition = (swiper: SwiperClass) => {
         const scrollbar = swiper.scrollbar?.el;
@@ -46,7 +47,7 @@ export default function ProductGallery() {
             scrollbar.scrollLeft = (scrollWidth - clientWidth) * progress;
         }
     };
-    
+
     useEffect(() => {
         const swiper = swiperRef.current?.swiper;
         if (swiper) {
@@ -59,22 +60,22 @@ export default function ProductGallery() {
     return (
         <div>
             <Swiper
-                
+
                 style={{
-                "--swiper-navigation-color": "#fff",
-                "--swiper-navigation-size": "30px",
-                background: "rgba(49, 55, 66, 0.80)" 
-                } as React.CSSProperties }
+                    "--swiper-navigation-color": "#fff",
+                    "--swiper-navigation-size": "30px",
+                    background: "rgba(49, 55, 66, 0.80)"
+                } as React.CSSProperties}
                 spaceBetween={10}
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper?.destroyed ? thumbsSwiper : null }}
                 modules={[FreeMode, Navigation, Thumbs, Scrollbar]}
-                
+
                 className="mySwiper2 clip-path-element md:mb-8 mb-4 backdrop-blur-md"
                 onSlideChange={() => {
                     setKey((prevKey) => prevKey + 1);
                 }}
-                slideToClickedSlide={true} 
+                slideToClickedSlide={true}
             >
                 {/* Adicionar video Iframe */}
                 <SwiperSlide>
@@ -90,29 +91,29 @@ export default function ProductGallery() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="relative" style={{ paddingBottom: "56.25%" }}>    
+                    <div className="relative" style={{ paddingBottom: "56.25%" }}>
                         <Image src={ProductImage01} className="clip-path-images w-full h-full absolute" alt="" />
                     </div>
-                    
+
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="relative" style={{ paddingBottom: "56.25%" }}>    
+                    <div className="relative" style={{ paddingBottom: "56.25%" }}>
                         <Image src={ProductImage02} className="clip-path-images w-full h-full absolute" alt="" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="relative" style={{ paddingBottom: "56.25%" }}>    
+                    <div className="relative" style={{ paddingBottom: "56.25%" }}>
                         <Image src={ProductImage03} className="clip-path-images w-full h-full absolute" alt="" />
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className="relative" style={{ paddingBottom: "56.25%" }}>    
+                    <div className="relative" style={{ paddingBottom: "56.25%" }}>
                         <Image src={ProductImage04} className="clip-path-images w-full h-full absolute" alt="" />
                     </div>
                 </SwiperSlide>
-                
-                
+
+
             </Swiper>
 
             {/* Miniaturas */}
@@ -149,14 +150,14 @@ export default function ProductGallery() {
                 }}
                 centeredSlides={false}
                 slideToClickedSlide={true}
-          
+
             >
                 {[VideoImage, ProductImage01, ProductImage02, ProductImage03, ProductImage04].map((image, index) => (
                     <SwiperSlide key={index} onClick={() => handleSlideClick(index)}>
                         <Image src={image} className="clip-path-images" alt="" />
                     </SwiperSlide>
                 ))}
-            
+
             </Swiper>
         </div>
     )

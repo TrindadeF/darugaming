@@ -66,11 +66,11 @@ export default function BuyProduct() {
                 style={{ background: "linear-gradient(85deg, rgba(11, 196, 229, 0.24) 11.1%, rgba(0, 216, 255, 0.50) 70.51%, #02D9FF 113.22%)" }}
             >
                 <div className="flex-1 flex justify-center items-center font-medium md:text-sm text-[10px]" data-tooltip-id="my-tooltip-1"><LightningSVG className="mr-2" /><span>Instant <br />Delivery</span></div>
-                <ReactTooltip id="my-tooltip-1" className="w-24" place="top" content="The account with the game will be delivered instantly."/>
+                <ReactTooltip id="my-tooltip-1" className="w-24" place="top" content="The account with the game will be delivered instantly." />
                 <div className="whitespace-nowrap px-2 flex-auto flex justify-center items-center font-medium md:text-sm text-[10px] border border-t-0 border-b-0 border-[#0BC4E5]" data-tooltip-id="my-tooltip-2"><SupportAgentSVG className="mr-2" /><span>Support from<br /> 2PM to 11PM</span></div>
-                <ReactTooltip id="my-tooltip-2" place="top" content="Lisbon time."/>
+                <ReactTooltip id="my-tooltip-2" place="top" content="Lisbon time." />
                 <div className="flex-1 flex justify-center items-center font-medium md:text-sm text-[10px]" data-tooltip-id="my-tooltip-3"><GlobalSVG className="mr-2" /><span>Global <br />Region</span></div>
-                <ReactTooltip id="my-tooltip-3" place="top" content="The game works worldwide."/>
+                <ReactTooltip id="my-tooltip-3" place="top" content="The game works worldwide." />
             </div>
             <p className="text-base font-medium mb-4">Select rental period options:</p>
             <div className="border border-white mb-5 ">
@@ -85,14 +85,14 @@ export default function BuyProduct() {
                             className="flex justify-between cursor-pointer hover:bg-white/10 transition w-full font-medium py-5 px-6 rounded items-center"
                             onClick={toggleDropdown}
                         >
-                            {selectOption} 
+                            {selectOption}
                             <ChevronSVG />
                         </button>
                         <ul className={`absolute ${isOpen ? 'block' : 'hidden'} w-full border bg-[#2A2F37] text-white pt-1 custom-dropdown`}>
                             {dropdownItems.map((item, index) => (
-                            <li key={index} className="hover:bg-white/20 cursor-pointer py-3 px-6" onClick={() => onOptionClicked(item)}>
-                                {item} 
-                            </li>
+                                <li key={index} className="hover:bg-white/20 cursor-pointer py-3 px-6" onClick={() => onOptionClicked(item)}>
+                                    {item}
+                                </li>
                             ))}
                         </ul>
                     </div>
@@ -109,7 +109,7 @@ export default function BuyProduct() {
                 <div className="box-shape">
                     <button className="w-full bg-[#0BC4E5]  cursor-pointer h-14 shape-outline button-product font-semibold text-[#00D8FF] gap-2"><UserGuestSVG />Buy now as Guest</button>
                 </div>
-                <div 
+                <div
                     className="box-shape wish"
                     onMouseEnter={() => setIsHoveredWish(true)}
                     onMouseLeave={() => setIsHoveredWish(false)}
