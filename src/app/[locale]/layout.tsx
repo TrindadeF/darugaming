@@ -17,7 +17,7 @@ import { CurrencyProvider } from "@/components/providers/currency";
 import { Footer } from "@/components/widgets/footer";
 import { MeilisearchProvier } from "@/components/providers/meilisearch";
 import { CartProvider } from "@/components/providers/cart";
-import { ThemeProvider } from "@/components/providers/theme";
+
 import { FontProvider } from "@/components/providers/font";
 
 
@@ -116,39 +116,32 @@ export default async function RootLayout({
   const { resources } = await initTranslations(locale, i18nNamespaces);
   const session = await getServerSession();
   return (
-    <html lang={locale} dir={dir(locale)} suppressHydrationWarning className="dark">
+    <html lang={locale} dir={dir(locale)} suppressHydrationWarning className="dark" >
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${manrope.variable} antialiased`}
       >
         <SessionProvider initialSession={session}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <FontProvider defaultFont={font || geistMono.variable}>
-              <MeilisearchProvier>
-                <TranslationsProvider
-                  namespaces={i18nNamespaces}
-                  locale={locale}
-                  resources={resources}
-                >
-                  <ZodProvider>
-                    <CurrencyProvider>
-                      <CartProvider>
-                        <NavMenu />
-                        <MainNav />
-                        {children}
-                        <Footer />
-                        <Toaster />
-                      </CartProvider>
-                    </CurrencyProvider>
-                  </ZodProvider>
-                </TranslationsProvider>
-              </MeilisearchProvier>
-            </FontProvider>
-          </ThemeProvider>
+          <FontProvider defaultFont={font || geistMono.variable}>
+            <MeilisearchProvier>
+              <TranslationsProvider
+                namespaces={i18nNamespaces}
+                locale={locale}
+                resources={resources}
+              >
+                <ZodProvider>
+                  <CurrencyProvider>
+                    <CartProvider>
+                      <NavMenu />
+                      <MainNav />
+                      {children}
+                      <Footer />
+                      <Toaster />
+                    </CartProvider>
+                  </CurrencyProvider>
+                </ZodProvider>
+              </TranslationsProvider>
+            </MeilisearchProvier>
+          </FontProvider>
         </SessionProvider>
       </body >
     </html >
