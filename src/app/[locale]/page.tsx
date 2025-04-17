@@ -1,4 +1,5 @@
 'use client'
+
 import { HeroCarousel } from "@/components/widgets/hero-carousel";
 import { BackgroundWrapper } from "@/components/bg-wrapper";
 import { ColorProvider } from "@/components/providers/color";
@@ -8,7 +9,6 @@ import { InfiniteMovingPartners } from "@/components/widgets/infinite-moving-par
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
-
   const { t } = useTranslation('home')
   return (
     <ColorProvider>

@@ -1,3 +1,5 @@
+'use server';
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Manrope } from "next/font/google";
 import "./globals.css";
@@ -93,7 +95,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 const i18nNamespaces = ['home', 'account', 'nav', 'footer', 'auth', 'about', 'form', 'terms', 'product'];
