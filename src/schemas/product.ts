@@ -12,7 +12,7 @@ const productAttributeSchema = z.object({
     ).min(1, { message: "Adicione pelo menos um valor" }),
 });
 
-// Schema principal do Product
+
 export const productSchema = z.object({
     categoryId: z.string().min(1, { message: "Selecione uma categoria" }),
     deviceId: z.string().optional(),
@@ -173,28 +173,11 @@ export function GetProductConfig(datas: any[] = [], chave: string[] = []): Recor
             description: "Espaço ideal em disco para melhor performance",
             inputType: "text"
         },
-        attributes: {
-            label: "Atributos",
-            placeholder: "Adicionar atributo",
-            description: "Variações do produto",
-            inputType: "dynamic-list",
-            fields: {
-                name: { label: "Nome", placeholder: "Ex: Cor", inputType: "text" },
-                values: {
-                    label: "Valores",
-                    inputType: "multi-text",
-                    fields: {
-                        value: { label: "Valor", placeholder: "Ex: Vermelho", inputType: "text" },
-                        price: { label: "Preço Extra", placeholder: "0.00", inputType: "number" }
-                    }
-                }
-            }
-        },
         images: {
             label: "Imagens",
             placeholder: "URL da imagem",
             description: "Galeria do produto",
-            inputType: "multi-text"
+            inputType: "text"
         },
         status: {
             label: "Status",

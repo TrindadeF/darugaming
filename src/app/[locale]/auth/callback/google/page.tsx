@@ -4,17 +4,22 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function GoogleCallbackPage({
+    params,
     searchParams,
 }: {
-    searchParams: { data?: string };
+    params: Promise<{ locale: string }>;
+    searchParams: Promise<{ data?: string }>;
 }) {
-    const data = searchParams.data ? JSON.parse(decodeURIComponent(searchParams.data)) : null;
+    const { locale } = await params;
+    const { data } = await searchParams;
 
-    if (!data || !data.accessToken) {
-        redirect("/[locale]/auth/error");
+    const parsedData = data ? JSON.parse(decodeURIComponent(data)) : null;
+
+    if (!parsedData || !parsedData.accessToken) {
+        redirect(`${locale}/auth/error`);
     }
 
-    const session = await encode(data);
+    const session = await encode(parsedData);
     (await cookies()).set(SESSION_COOKIE_NAME, session, {
         httpOnly: true,
         secure: true,
@@ -23,5 +28,5 @@ export default async function GoogleCallbackPage({
         path: "/",
     });
 
-    redirect("/[locale]/");
+    redirect(`/${locale}`);
 }
