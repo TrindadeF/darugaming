@@ -1,3 +1,5 @@
+'use server';
+
 import { encode } from "@/lib/auth/server-session";
 import { SESSION_COOKIE_MAX_AGE, SESSION_COOKIE_NAME } from "@/lib/auth/helper";
 import { cookies } from "next/headers";

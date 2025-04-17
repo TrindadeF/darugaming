@@ -1,4 +1,5 @@
 'use client'
+
 import '@/app/[locale]/globals.css'
 import { NotFound as NotFoundUi, Illustration } from "@/components/ui/not-found"
 
