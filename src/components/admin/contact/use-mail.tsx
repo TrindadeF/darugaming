@@ -1,3 +1,5 @@
+'use client';
+
 import { getTickets } from "@/lib/requests/getTickets"
 import { atom, useAtom } from "jotai"
 
