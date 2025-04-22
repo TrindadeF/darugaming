@@ -26,43 +26,29 @@ function MainNav() {
                     border-l-[69px] border-r-[69px] border-t-[39px] {/* Ajuste fino */}
                     border-transparent border-t-background" />
             </div>
-
-            <NavigationMenu className="max-w-full min-w-screen relative h-20 bg-transparent z-20 ">
-                <NavigationMenuList className="grid grid-cols-3 items-center w-full px-4 p-1 bg-transparent">
-
-                    <div className="flex gap-2 justify-self-start">
+            <NavigationMenu className="w-full relative h-20 bg-transparent z-20">
+                <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center z-20 pointer-events-none">
+                    <Image
+                        src={logo.src}
+                        alt="Logo"
+                        width={75}
+                        height={75}
+                        className="mx-auto"
+                    />
+                </div>
+                <NavigationMenuList className="flex items-center justify-between md:justify-evenly w-screen px-4 h-full z-10">
+                    <div className="flex gap-4">
                         <NavigationMenuItem asChild>
-                            <Link href="/link1" className="hover:text-[#0bc4e5] transition">
-                                Link 1
-                            </Link>
+                            <Link href="/" className="hover:text-[#0bc4e5] transition">Home</Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem asChild>
-                            <Link href="/link2" className="hover:text-[#0bc4e5] transition">
-                                Link 2
-                            </Link>
+                            <Link href="/contact" className="hover:text-[#0bc4e5] transition">Contato</Link>
                         </NavigationMenuItem>
                     </div>
-                    <NavigationMenuItem className="justify-self-center" >
-                        <Link href="/" className="block">
-                            <Image
-                                src={logo.src}
-                                alt="logo"
-                                width={75}
-                                height={75}
-                                className="mx-auto"
-                            />
-                        </Link>
-                    </NavigationMenuItem>
-                    <div className="flex gap-2 justify-self-end">
+
+                    <div className="flex gap-4">
                         <NavigationMenuItem asChild>
-                            <Link href="/link3" className="hover:text-[#0bc4e5] transition">
-                                Link 3
-                            </Link>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem asChild>
-                            <Link href="/link3" className="hover:text-[#0bc4e5] transition">
-                                Link 4
-                            </Link>
+                            <Link href="/products" className="hover:text-[#0bc4e5] transition">Games</Link>
                         </NavigationMenuItem>
                     </div>
                 </NavigationMenuList>

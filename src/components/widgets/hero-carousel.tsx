@@ -6,6 +6,8 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, Car
 import Autoplay from "embla-carousel-autoplay"
 
 import { useColor } from "../providers/color"
+import { useProducts } from "../providers/products"
+import { useRouter } from "next/navigation"
 
 const banners = [
     {
@@ -24,7 +26,9 @@ const banners = [
 
 export function HeroCarousel() {
     const [api, setApi] = useState<CarouselApi>()
+    const router = useRouter()
     const plugin = React.useRef(Autoplay({ delay: 5000, stopOnInteraction: false }))
+    const { trending } = useProducts()
     const { setColor } = useColor()
     useEffect(() => {
         if (!api) return console.log('erro')
@@ -58,20 +62,27 @@ export function HeroCarousel() {
                     }}
                 >
                     <CarouselContent className="h-[500px]" >
-                        {banners.map((banner, index) => (
-                            <CarouselItem key={index}>
-                                <div className={`relative h-full w-full flex items-center justify-center ${banner.color}`}>
-                                    {/* <img
-                                        src={banner.image}
-                                        alt={`Banner ${index + 1}`}
-                                        className="h-full w-full object-contain rounded-xl"
-                                    /> */}
-                                </div>
-                            </CarouselItem>
-                        ))}
+                        {banners.map((banner, index) => {
+                            const product = trending[index];
+                            return (
+                                <CarouselItem key={index}>
+                                    <div
+                                        className={`relative h-full w-screen flex items-center justify-center ${banner.color}`}
+                                        onClick={() => product && router.push(`/products/${product._id}`)}
+                                    >
+                                        {product?.backgroundImage && (
+                                            <img
+                                                src={product.backgroundImage}
+                                                alt={`Banner ${index + 1}`}
+                                                className="h-full w-full object-contain rounded-xl"
+                                            />
+                                        )}
+                                    </div>
+                                </CarouselItem>
+                            );
+                        })}
+
                     </CarouselContent>
-
-
                     <CarouselPrevious className="left-4" />
                     <CarouselNext className="right-4" />
                 </Carousel>

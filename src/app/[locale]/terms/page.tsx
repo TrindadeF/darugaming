@@ -2,11 +2,8 @@
 
 import { useTranslation } from "react-i18next";
 
-
-
 export default function PrivacyPolicyPage() {
     const { t } = useTranslation('terms');
-
     return (
         <div className="md:w-[1100px] w-full container mx-auto mt-20 relative text-white py-6">
             <div className="md:p-10 p-5 backdrop-blur-md clip-path-element gap-1" style={{ background: "rgba(49, 55, 66, 0.80)" }}>

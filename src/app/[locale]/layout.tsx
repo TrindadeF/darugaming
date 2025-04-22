@@ -26,6 +26,7 @@ import { FontProvider } from "@/components/providers/font";
 import { cookies } from "next/headers";
 import { MainNav } from "@/components/widgets/main-nav";
 import { ZodProvider } from "@/components/providers/zodi18n";
+import { ProductsProvider } from "@/components/providers/products";
 
 
 
@@ -131,15 +132,17 @@ export default async function RootLayout({
                 resources={resources}
               >
                 <ZodProvider>
-                  <CurrencyProvider>
-                    <CartProvider>
-                      <NavMenu />
-                      <MainNav />
-                      {children}
-                      <Footer />
-                      <Toaster />
-                    </CartProvider>
-                  </CurrencyProvider>
+                  <ProductsProvider>
+                    <CurrencyProvider>
+                      <CartProvider>
+                        <NavMenu />
+                        <MainNav />
+                        {children}
+                        <Footer />
+                        <Toaster />
+                      </CartProvider>
+                    </CurrencyProvider>
+                  </ProductsProvider>
                 </ZodProvider>
               </TranslationsProvider>
             </MeilisearchProvier>
