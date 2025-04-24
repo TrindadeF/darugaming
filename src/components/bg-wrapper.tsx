@@ -1,4 +1,5 @@
 "use client"
+
 import { useColor } from "./providers/color"
 import backgroundStars from "@/assets/background-stars.png"
 import Image from "next/image"
