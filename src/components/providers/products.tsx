@@ -26,9 +26,9 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) 
         const fetchProducts = async () => {
             try {
                 // Substitua por sua chamada API real
-                const response = await fetch('/api/produtos');
+                const response = await fetch('/api/products');
                 const data = await response.json();
-                setProducts(data);
+                setProducts(Array.isArray(data.products) ? data.products : []);
             } catch (err) {
                 setError('Erro ao carregar produtos');
             } finally {

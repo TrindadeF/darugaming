@@ -1,38 +1,34 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic'; // Necessário para evitar cache
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
     try {
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL + '/products';
+        const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:1337';
+        const backendUrl = baseUrl + '/api/products/';
 
         const response = await fetch(backendUrl, {
             headers: {
                 'Content-Type': 'application/json',
-                // Adicione headers de autenticação se necessário
-                // 'Authorization': `Bearer ${token}`
             }
         });
-
-        if (!response.ok) {
-            throw new Error(`Backend returned status ${response.status}`);
-        }
 
         const products = await response.json();
 
-        return NextResponse.json(products, {
-            status: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Cache-Control': 'no-store, max-age=0'
-            }
+        // products é um array, adapte para o formato esperado
+        return NextResponse.json({
+            products: Array.isArray(products) ? products : [],
+            trending: [],
+            bestSales: [],
+            preOrder: []
         });
-
     } catch (error) {
         console.error('Error fetching products:', error);
-        return NextResponse.json(
-            { error: 'Failed to fetch products' },
-            { status: 500 }
-        );
+        return NextResponse.json({ 
+            products: [],
+            trending: [],
+            bestSales: [],
+            preOrder: []
+        }, { status: 200 });
     }
 }

@@ -17,7 +17,6 @@ import metadataTranslations from "@/locales/metadata";
 import { NavMenu } from "@/components/widgets/menu-nav";
 import { CurrencyProvider } from "@/components/providers/currency";
 import { Footer } from "@/components/widgets/footer";
-import { MeilisearchProvier } from "@/components/providers/meilisearch";
 import { CartProvider } from "@/components/providers/cart";
 
 import { FontProvider } from "@/components/providers/font";
@@ -62,6 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
   const { t } = await initTranslations(locale, ['metadata']);
 
+  // Valor padrão caso a variável de ambiente não esteja definida
+  const baseUrl = process.env.NEXT_PUBLIC_BASEURL || 'https://darugaming.vercel.app';
+  
   return {
     icons: {
       icon: [
@@ -73,11 +75,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     title: t('title'),
     description: t('description'),
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASEURL}`),
+    metadataBase: new URL(baseUrl),
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: `${process.env.NEXT_PUBLIC_BASEURL}`,
+      url: baseUrl,
       siteName: "Por",
       locale,
       type: "website",
@@ -125,7 +127,6 @@ export default async function RootLayout({
       >
         <SessionProvider initialSession={session}>
           <FontProvider defaultFont={font || geistMono.variable}>
-            <MeilisearchProvier>
               <TranslationsProvider
                 namespaces={i18nNamespaces}
                 locale={locale}
@@ -145,7 +146,6 @@ export default async function RootLayout({
                   </ProductsProvider>
                 </ZodProvider>
               </TranslationsProvider>
-            </MeilisearchProvier>
           </FontProvider>
         </SessionProvider>
       </body >
